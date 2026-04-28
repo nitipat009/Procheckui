@@ -160,7 +160,7 @@ function PackageCard({
 }) {
   const navigate = useNavigate();
   return (
-    <div onClick={() => navigate(`/package-detail?id=${pkg.id}`)} className="relative bg-white rounded-2xl border border-gray-100 p-5 hover:border-[#0B5ED7]/30 hover:shadow-[0_8px_30px_-8px_rgba(11,94,215,0.15)] transition-all cursor-pointer group flex flex-col gap-3">
+    <div onClick={() => navigate(`/package-detail?id=${pkg.id}`)} className="relative nbtc-panel rounded-2xl p-5 hover:border-[rgba(246,243,228,0.28)] hover:shadow-[0_8px_30px_-8px_rgba(0,0,0,0.45)] transition-all cursor-pointer group flex flex-col gap-3">
       {/* Favorite toggle */}
       <button
         onClick={(e) => {
@@ -188,29 +188,29 @@ function PackageCard({
 
       {/* Name + Price */}
       <div>
-        <p className="font-semibold text-gray-900 leading-tight">{pkg.name}</p>
+        <p className="font-semibold leading-tight" style={{ color: "var(--clr-light)" }}>{pkg.name}</p>
         <div className="flex items-baseline gap-1 mt-1">
-          <span className="text-2xl font-bold text-[#0B5ED7]">{pkg.price.toLocaleString()}</span>
-          <span className="text-xs text-gray-400">บาท/เดือน</span>
+          <span className="text-2xl font-bold" style={{ color: "var(--clr-light)" }}>{pkg.price.toLocaleString()}</span>
+          <span className="text-xs" style={{ color: "rgba(246,243,228,0.45)" }}>บาท/เดือน</span>
         </div>
       </div>
 
       {/* Stats row */}
       <div className="grid grid-cols-3 gap-2">
-        <div className="flex flex-col items-center justify-center gap-1 bg-[#F5F7FA] rounded-xl p-2 text-center min-h-[68px]">
-          <Wifi className="w-3.5 h-3.5 text-[#0B5ED7]" strokeWidth={2} />
-          <span className="text-xs font-semibold text-gray-900 leading-tight break-words w-full">{pkg.data}</span>
-          <span className="text-[10px] text-gray-400">ข้อมูล</span>
+        <div className="flex flex-col items-center justify-center gap-1 rounded-xl p-2 text-center min-h-[68px]" style={{ background: "rgba(246,243,228,0.06)" }}>
+          <Wifi className="w-3.5 h-3.5" style={{ color: "var(--clr-light)" }} strokeWidth={2} />
+          <span className="text-xs font-semibold leading-tight break-words w-full" style={{ color: "var(--clr-light)" }}>{pkg.data}</span>
+          <span className="text-[10px]" style={{ color: "rgba(246,243,228,0.45)" }}>ข้อมูล</span>
         </div>
-        <div className="flex flex-col items-center justify-center gap-1 bg-[#F5F7FA] rounded-xl p-2 text-center min-h-[68px]">
-          <Zap className="w-3.5 h-3.5 text-[#0B5ED7]" strokeWidth={2} />
-          <span className="text-xs font-semibold text-gray-900 leading-tight break-words w-full">{pkg.speed}</span>
-          <span className="text-[10px] text-gray-400">ความเร็ว</span>
+        <div className="flex flex-col items-center justify-center gap-1 rounded-xl p-2 text-center min-h-[68px]" style={{ background: "rgba(246,243,228,0.06)" }}>
+          <Zap className="w-3.5 h-3.5" style={{ color: "var(--clr-light)" }} strokeWidth={2} />
+          <span className="text-xs font-semibold leading-tight break-words w-full" style={{ color: "var(--clr-light)" }}>{pkg.speed}</span>
+          <span className="text-[10px]" style={{ color: "rgba(246,243,228,0.45)" }}>ความเร็ว</span>
         </div>
-        <div className="flex flex-col items-center justify-center gap-1 bg-[#F5F7FA] rounded-xl p-2 text-center min-h-[68px]">
-          <Phone className="w-3.5 h-3.5 text-[#0B5ED7]" strokeWidth={2} />
-          <span className="text-xs font-semibold text-gray-900 leading-tight break-words w-full">{pkg.calls}</span>
-          <span className="text-[10px] text-gray-400">โทร</span>
+        <div className="flex flex-col items-center justify-center gap-1 rounded-xl p-2 text-center min-h-[68px]" style={{ background: "rgba(246,243,228,0.06)" }}>
+          <Phone className="w-3.5 h-3.5" style={{ color: "var(--clr-light)" }} strokeWidth={2} />
+          <span className="text-xs font-semibold leading-tight break-words w-full" style={{ color: "var(--clr-light)" }}>{pkg.calls}</span>
+          <span className="text-[10px]" style={{ color: "rgba(246,243,228,0.45)" }}>โทร</span>
         </div>
       </div>
 
@@ -220,7 +220,7 @@ function PackageCard({
       </div>
 
       {/* CTA */}
-      <button className="mt-auto w-full py-2.5 rounded-xl border border-[#0B5ED7] text-[#0B5ED7] text-sm font-medium flex items-center justify-center gap-1.5 group-hover:bg-[#0B5ED7] group-hover:text-white transition-all">
+      <button className="mt-auto w-full py-2.5 rounded-xl nbtc-primary-btn text-sm font-medium flex items-center justify-center gap-1.5">
         ดูรายละเอียด <ArrowUpRight className="w-3.5 h-3.5" />
       </button>
     </div>
@@ -240,14 +240,14 @@ export function PopularPackages() {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-[#F5F7FA]">
+    <section className="py-12 md:py-16" style={{ background: "var(--clr-bg-primary)" }}>
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header — centered */}
         <div className="text-center mb-6 md:mb-8">
-          <h2 className="text-xl md:text-3xl font-bold text-gray-900 tracking-tight">
+          <h2 className="text-xl md:text-3xl font-bold tracking-tight" style={{ color: "var(--clr-light)" }}>
             แพ็กเกจยอดนิยม
           </h2>
-          <p className="text-gray-500 mt-2 text-sm">เปรียบเทียบและเลือกแพ็กเกจที่ใช่สำหรับคุณ</p>
+          <p className="mt-2 text-sm" style={{ color: "rgba(246,243,228,0.65)" }}>เปรียบเทียบและเลือกแพ็กเกจที่ใช่สำหรับคุณ</p>
         </div>
 
         {/* Grid */}

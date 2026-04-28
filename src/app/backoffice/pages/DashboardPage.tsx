@@ -47,10 +47,10 @@ const sources = [
   { id: "s3", name: "Referral", value: 20 },
 ];
 
-const COLORS = ["#0B5ED7", "#60A5FA", "#93C5FD", "#BFDBFE"];
+const COLORS = ["#F6F3E4", "rgba(246,243,228,0.75)", "rgba(246,243,228,0.55)", "rgba(246,243,228,0.35)"];
 
 function Card({ children, className = "" }: any) {
-  return <div className={`bg-white rounded-xl border border-gray-200 p-5 ${className}`}>{children}</div>;
+  return <div className={`nbtc-panel rounded-xl p-5 ${className}`}>{children}</div>;
 }
 
 function Kpi({ icon: Icon, label, value, delta }: any) {
@@ -117,8 +117,8 @@ export function DashboardPage() {
                 <YAxis tick={{ fontSize: 12 }} />
                 <Tooltip />
                 <Legend />
-                <Line key="line-visits" type="monotone" dataKey="visits" stroke="#0B5ED7" strokeWidth={2} dot={false} name="Visits" />
-                <Line key="line-unique" type="monotone" dataKey="unique" stroke="#60A5FA" strokeWidth={2} dot={false} name="Unique" />
+                <Line key="line-visits" type="monotone" dataKey="visits" stroke="#F6F3E4" strokeWidth={2} dot={false} name="Visits" />
+                <Line key="line-unique" type="monotone" dataKey="unique" stroke="rgba(246,243,228,0.7)" strokeWidth={2} dot={false} name="Unique" />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -151,7 +151,7 @@ export function DashboardPage() {
                 <XAxis type="number" tick={{ fontSize: 11 }} />
                 <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={130} />
                 <Tooltip />
-                <Bar dataKey="count" fill="#0B5ED7" radius={[0, 4, 4, 0]} />
+                <Bar dataKey="count" fill="#F6F3E4" radius={[0, 4, 4, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -165,7 +165,7 @@ export function DashboardPage() {
                 <XAxis type="number" tick={{ fontSize: 11 }} />
                 <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={140} />
                 <Tooltip />
-                <Bar dataKey="count" fill="#60A5FA" radius={[0, 4, 4, 0]} />
+                <Bar dataKey="count" fill="rgba(246,243,228,0.7)" radius={[0, 4, 4, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>

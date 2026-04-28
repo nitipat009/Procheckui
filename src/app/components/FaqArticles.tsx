@@ -54,12 +54,12 @@ const articles = [
 ];
 
 const tagColor: Record<string, string> = {
-  คู่มือ: "bg-blue-100 text-[#0B5ED7]",
-  เทคโนโลยี: "bg-purple-100 text-purple-700",
-  เปรียบเทียบ: "bg-green-100 text-green-700",
-  สิทธิ์: "bg-orange-100 text-orange-700",
-  โรมมิ่ง: "bg-teal-100 text-teal-700",
-  อินเทอร์เน็ต: "bg-red-100 text-red-700",
+  คู่มือ: "nbtc-badge",
+  เทคโนโลยี: "nbtc-badge",
+  เปรียบเทียบ: "nbtc-badge",
+  สิทธิ์: "nbtc-badge",
+  โรมมิ่ง: "nbtc-badge",
+  อินเทอร์เน็ต: "nbtc-badge",
 };
 
 // Group articles into pairs (each carousel slide = 2 articles stacked)
@@ -71,18 +71,19 @@ const articlePairs = [
 
 function FaqItem({ q, a, open, onClick }: { q: string; a: string; open: boolean; onClick: () => void }) {
   return (
-    <div className="border-b border-gray-100 py-5">
+    <div className="border-b py-5 nbtc-divider">
       <button onClick={onClick} className="w-full flex items-center justify-between text-left gap-4">
-        <span className={`font-medium transition-colors ${open ? "text-[#0B5ED7]" : "text-gray-900"}`}>{q}</span>
+        <span className="font-medium transition-colors" style={{ color: "var(--clr-light)" }}>{q}</span>
         <span
           className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
-            open ? "bg-[#0B5ED7] text-white" : "bg-gray-100 text-gray-500"
+            open ? "nbtc-badge" : ""
           }`}
+          style={!open ? { background: "rgba(246,243,228,0.08)", color: "rgba(246,243,228,0.65)" } : undefined}
         >
           {open ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
         </span>
       </button>
-      {open && <p className="mt-3 text-sm text-gray-500 leading-relaxed pr-12">{a}</p>}
+      {open && <p className="mt-3 text-sm leading-relaxed pr-12" style={{ color: "rgba(246,243,228,0.65)" }}>{a}</p>}
     </div>
   );
 }
@@ -123,11 +124,11 @@ export function FaqArticles() {
   }, [articleEmblaApi]);
 
   return (
-    <section className="py-12 md:py-16 bg-white">
+    <section className="py-12 md:py-16" style={{ background: "var(--clr-bg-primary)" }}>
       <div className="max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14">
         {/* FAQ */}
         <div>
-          <h2 className="text-xl md:text-3xl font-bold text-gray-900 tracking-tight mb-6 md:mb-8">คำถามที่พบบ่อย</h2>
+          <h2 className="text-xl md:text-3xl font-bold tracking-tight mb-6 md:mb-8" style={{ color: "var(--clr-light)" }}>คำถามที่พบบ่อย</h2>
           <div>
             {faqs.map((f, i) => (
               <FaqItem
@@ -144,8 +145,8 @@ export function FaqArticles() {
         {/* Articles Carousel */}
         <div>
           <div className="flex items-center justify-between mb-6 md:mb-8">
-            <h2 className="text-xl md:text-3xl font-bold text-gray-900 tracking-tight">บทความน่ารู้</h2>
-            <a className="text-sm text-[#0B5ED7] hover:text-[#094fb8] font-medium inline-flex items-center gap-1 cursor-pointer flex-shrink-0">
+            <h2 className="text-xl md:text-3xl font-bold tracking-tight" style={{ color: "var(--clr-light)" }}>บทความน่ารู้</h2>
+            <a className="text-sm font-medium inline-flex items-center gap-1 cursor-pointer flex-shrink-0 hover:opacity-80" style={{ color: "var(--clr-light)" }}>
               ดูทั้งหมด <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
@@ -160,9 +161,10 @@ export function FaqArticles() {
                       key={a.id}
                       to={`/article?id=${a.id}`}
                       draggable={false}
-                      className="flex items-center gap-4 group cursor-pointer p-3 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
+                      className="flex items-center gap-4 group cursor-pointer p-3 rounded-xl transition-colors border border-transparent"
+                      style={{ background: "rgba(246,243,228,0.02)" }}
                     >
-                      <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100">
+                      <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0" style={{ background: "rgba(246,243,228,0.08)" }}>
                         <ImageWithFallback
                           src={a.image}
                           alt={a.title}
@@ -170,14 +172,14 @@ export function FaqArticles() {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <span className={`inline-block text-xs px-2 py-0.5 rounded-full mb-1.5 font-medium ${tagColor[a.tag] ?? "bg-gray-100 text-gray-600"}`}>
+                        <span className={`inline-block text-xs px-2 py-0.5 rounded-full mb-1.5 font-medium ${tagColor[a.tag] ?? "nbtc-badge"}`}>
                           {a.tag}
                         </span>
-                        <h3 className="font-medium text-gray-900 leading-snug group-hover:text-[#0B5ED7] transition-colors line-clamp-2">
+                        <h3 className="font-medium leading-snug transition-colors line-clamp-2 group-hover:opacity-90" style={{ color: "var(--clr-light)" }}>
                           {a.title}
                         </h3>
                       </div>
-                      <ArrowUpRight className="w-4 h-4 text-gray-300 group-hover:text-[#0B5ED7] flex-shrink-0 transition-colors" />
+                      <ArrowUpRight className="w-4 h-4 flex-shrink-0 transition-colors" style={{ color: "rgba(246,243,228,0.45)" }} />
                     </Link>
                   ))}
                 </div>
@@ -191,11 +193,12 @@ export function FaqArticles() {
               <button
                 key={i}
                 onClick={() => articleEmblaApi?.scrollTo(i)}
-                className={`rounded-full transition-all ${
-                  i === selectedIndex
-                    ? "w-5 h-2 bg-[#0B5ED7]"
-                    : "w-2 h-2 bg-gray-200 hover:bg-gray-300"
+                  className={`rounded-full transition-all ${
+                    i === selectedIndex
+                    ? "w-5 h-2"
+                    : "w-2 h-2"
                 }`}
+                style={{ background: i === selectedIndex ? "var(--clr-light)" : "rgba(246,243,228,0.22)" }}
               />
             ))}
           </div>

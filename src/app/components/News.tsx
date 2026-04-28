@@ -43,9 +43,9 @@ const news = [
 ];
 
 const categoryColor: Record<string, string> = {
-  ประกาศ: "bg-blue-100 text-[#0B5ED7]",
-  ข่าวสาร: "bg-green-100 text-green-700",
-  วิเคราะห์: "bg-purple-100 text-purple-700",
+  ประกาศ: "nbtc-badge",
+  ข่าวสาร: "nbtc-badge",
+  วิเคราะห์: "nbtc-badge",
 };
 
 export function News() {
@@ -83,15 +83,16 @@ export function News() {
   }, [emblaApi]);
 
   return (
-    <section className="py-12 md:py-16 bg-[#F5F7FA]">
+    <section className="py-12 md:py-16" style={{ background: "var(--clr-bg-primary)" }}>
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="mb-6 md:mb-8 text-center">
-          <h2 className="text-xl md:text-3xl font-bold text-gray-900 tracking-tight">ข่าวประชาสัมพันธ์</h2>
+          <h2 className="text-xl md:text-3xl font-bold tracking-tight" style={{ color: "var(--clr-light)" }}>ข่าวประชาสัมพันธ์</h2>
           <div className="flex items-center justify-center gap-3 mt-2">
-            <p className="text-gray-500 text-sm">อัปเดตข่าวสารและประกาศล่าสุด</p>
+            <p className="text-sm" style={{ color: "rgba(246,243,228,0.65)" }}>อัปเดตข่าวสารและประกาศล่าสุด</p>
             <Link
               to="/article"
-              className="text-sm text-[#0B5ED7] hover:text-[#094fb8] font-medium inline-flex items-center gap-1"
+              className="text-sm font-medium inline-flex items-center gap-1 hover:opacity-80"
+              style={{ color: "var(--clr-light)" }}
             >
               ดูทั้งหมด <ArrowUpRight className="w-4 h-4" />
             </Link>
@@ -113,8 +114,8 @@ export function News() {
                   className="block h-full"
                   draggable={false}
                 >
-                  <article className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-gray-200 hover:shadow-md transition-all cursor-pointer group h-full flex flex-col">
-                    <div className="aspect-[16/10] overflow-hidden bg-gray-100 flex-shrink-0">
+                  <article className="nbtc-panel rounded-2xl overflow-hidden hover:border-[rgba(246,243,228,0.28)] hover:shadow-md transition-all cursor-pointer group h-full flex flex-col">
+                    <div className="aspect-[16/10] overflow-hidden flex-shrink-0" style={{ background: "rgba(246,243,228,0.06)" }}>
                       <ImageWithFallback
                         src={n.image}
                         alt={n.title}
@@ -123,15 +124,15 @@ export function News() {
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className={`inline-block text-xs px-2.5 py-1 rounded-full font-medium ${categoryColor[n.category] ?? "bg-gray-100 text-gray-600"}`}>
-                          {n.category}
-                        </span>
-                        <span className="text-xs text-gray-400">{n.date}</span>
+                          <span className={`inline-block text-xs px-2.5 py-1 rounded-full font-medium ${categoryColor[n.category] ?? "nbtc-badge"}`}>
+                            {n.category}
+                          </span>
+                        <span className="text-xs" style={{ color: "rgba(246,243,228,0.45)" }}>{n.date}</span>
                       </div>
-                      <h3 className="font-semibold text-gray-900 leading-snug line-clamp-3 group-hover:text-[#0B5ED7] transition-colors flex-1">
+                      <h3 className="font-semibold leading-snug line-clamp-3 transition-colors flex-1 group-hover:opacity-90" style={{ color: "var(--clr-light)" }}>
                         {n.title}
                       </h3>
-                      <div className="mt-4 flex items-center gap-1 text-xs text-[#0B5ED7] font-medium">
+                      <div className="mt-4 flex items-center gap-1 text-xs font-medium" style={{ color: "var(--clr-light)" }}>
                         อ่านต่อ <ArrowUpRight className="w-3 h-3" />
                       </div>
                     </div>
@@ -151,9 +152,10 @@ export function News() {
             onClick={() => emblaApi?.scrollTo(i)}
             className={`rounded-full transition-all ${
               i === selectedIndex
-                ? "w-5 h-2 bg-[#0B5ED7]"
-                : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
+                ? "w-5 h-2"
+                : "w-2 h-2"
             }`}
+            style={{ background: i === selectedIndex ? "var(--clr-light)" : "rgba(246,243,228,0.22)" }}
           />
         ))}
       </div>

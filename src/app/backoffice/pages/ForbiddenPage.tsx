@@ -12,7 +12,7 @@ export function ForbiddenPage() {
         <p className="text-sm text-gray-600 mb-6">
           คุณไม่มีสิทธิ์เข้าถึงหน้านี้ กรุณาติดต่อผู้ดูแลระบบ
         </p>
-        <Link to="/backoffice/dashboard" className="inline-block bg-[#0B5ED7] hover:bg-[#094fb8] text-white text-sm px-5 py-2.5 rounded-lg">
+        <Link to="/backoffice/dashboard" className="inline-block nbtc-primary-btn text-sm px-5 py-2.5 rounded-lg">
           กลับ Dashboard
         </Link>
       </div>

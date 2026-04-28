@@ -9,7 +9,7 @@ import { AiChat } from "../components/AiChat";
 
 export function InternetBanPage() {
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen nbtc-page">
       <HeroBanner />
       <HeroSearchHome />
       <PopularPackagesHome />

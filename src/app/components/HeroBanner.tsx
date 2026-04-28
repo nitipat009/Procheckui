@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router";
+import landscape001 from "../../imports/landscape_001.png";
+import landscape002 from "../../imports/landscape_002.png";
+import landscape003 from "../../imports/landscape_003.png";
+import p001 from "../../imports/p_001.png";
+import p002 from "../../imports/p_002.png";
+import p003 from "../../imports/p_003.jpeg";
 
 type Banner = {
   id: string;
@@ -10,6 +16,8 @@ type Banner = {
   cta_href: string;
   bg_color: string;
   art_variant: "promo-badge" | "shield-check" | "open-badge";
+  landscapeImg: string;
+  mobileImg: string;
 };
 
 const banners: Banner[] = [
@@ -22,6 +30,8 @@ const banners: Banner[] = [
     cta_href: "/promotions",
     bg_color: "#30050E",
     art_variant: "promo-badge",
+    landscapeImg: landscape001,
+    mobileImg: p001,
   },
   {
     id: "banner-2",
@@ -32,6 +42,8 @@ const banners: Banner[] = [
     cta_href: "/about",
     bg_color: "#1E100F",
     art_variant: "shield-check",
+    landscapeImg: landscape002,
+    mobileImg: p002,
   },
   {
     id: "banner-3",
@@ -42,6 +54,8 @@ const banners: Banner[] = [
     cta_href: "/register",
     bg_color: "#4D0C12",
     art_variant: "open-badge",
+    landscapeImg: landscape003,
+    mobileImg: p003,
   },
 ];
 
@@ -188,7 +202,7 @@ export function HeroBanner() {
     return () => {
       if (intervalRef.current) window.clearInterval(intervalRef.current);
     };
-  }, [paused, docVisible]);
+  }, [paused, docVisible, index]);
 
   const goTo = (i: number) => {
     setIndex(i);
@@ -200,13 +214,12 @@ export function HeroBanner() {
 
   return (
     <section
-      className="relative w-screen left-1/2 -translate-x-1/2 flex flex-col"
-      style={{ background: "#1E100F" }}
+      className="relative w-screen left-1/2 -translate-x-1/2 flex flex-col lg:h-[95svh]"
+      style={{ background: "var(--clr-bg-primary)" }}
     >
       {/* Section A — Banner Carousel */}
       <div
-        className="relative overflow-hidden"
-        style={{ height: "clamp(200px, 70svh, 70svh)" }}
+        className="relative overflow-hidden h-[200px] sm:h-[220px] lg:h-[75svh]"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
@@ -221,11 +234,24 @@ export function HeroBanner() {
           {banners.map((b) => (
             <div
               key={b.id}
-              className="relative h-full flex items-center"
+              className="relative h-full flex items-center banner-slide"
               style={{ width: `${100 / banners.length}%`, background: b.bg_color }}
             >
-              <BgOverlay variant={b.art_variant} />
               <div
+                className="banner-bg-image"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  zIndex: 0,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              />
+              <BgOverlay variant={b.art_variant} />
+              {/*<div
                 className="relative w-full h-full flex items-center gap-6 sm:flex-row flex-col justify-center"
                 style={{ padding: "0 clamp(24px, 5vw, 40px)", zIndex: 1 }}
               >
@@ -268,11 +294,10 @@ export function HeroBanner() {
                   </p>
                   <NavLink
                     to={b.cta_href}
+                    className="nbtc-primary-btn"
                     style={{
                       display: "inline-block",
                       padding: "7px 18px",
-                      background: "#F6F3E4",
-                      color: "#1E100F",
                       fontSize: 12,
                       fontWeight: 500,
                       borderRadius: 6,
@@ -285,7 +310,7 @@ export function HeroBanner() {
                 <div className="hidden sm:flex flex-shrink-0 items-center justify-center" style={{ flex: "0 0 clamp(140px, 18vw, 180px)" }}>
                   <BannerArt variant={b.art_variant} />
                 </div>
-              </div>
+              </div>*/}
             </div>
           ))}
         </div>
@@ -293,7 +318,7 @@ export function HeroBanner() {
         {/* Dot indicator bar */}
         <div
           className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-2"
-          style={{ background: "#30050E", padding: "10px 0" }}
+          style={{ padding: "24px 0" }}
         >
           {banners.map((b, i) => (
             <button
@@ -317,11 +342,10 @@ export function HeroBanner() {
 
       {/* Section B — Service Quick Links */}
       <div
-        className="flex justify-around items-center"
+        className="flex justify-around sm:gap-4 md:gap-16 items-start m-auto"
         style={{
           padding: "16px 12px",
-          background: "#1E100F",
-          borderTop: "0.5px solid rgba(246,243,228,0.10)",
+          background: "--var(--clr-bg-primar)",
         }}
       >
         {services.map((s) => {
@@ -331,8 +355,8 @@ export function HeroBanner() {
               <div
                 className="service-icon flex items-center justify-center"
                 style={{
-                  width: 46,
-                  height: 46,
+                  width: 64,
+                  height: 64,
                   background: "#30050E",
                   borderRadius: 12,
                   border: "0.5px solid rgba(246,243,228,0.15)",
@@ -347,7 +371,11 @@ export function HeroBanner() {
                   color: "rgba(246,243,228,0.68)",
                   textAlign: "center",
                   lineHeight: 1.4,
+                  maxLines: 2,
                   maxWidth: 72,
+                  maxHeight: 28,
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
                 }}
               >
                 {s.label}
@@ -355,7 +383,7 @@ export function HeroBanner() {
             </>
           );
           const cls = "service-btn flex flex-col items-center cursor-pointer";
-          const style = { gap: 7, flex: 1, transition: "transform 0.2s ease" } as const;
+          const style = { gap: 7, transition: "transform 0.2s ease" } as const;
           return isExternal ? (
             <a key={s.id} href={s.href} target="_blank" rel="noopener noreferrer" className={cls} style={style}>
               {inner}
@@ -371,6 +399,31 @@ export function HeroBanner() {
       <style>{`
         .service-btn:hover { transform: translateY(-2px); }
         .service-btn:hover .service-icon { background: #4D0C12 !important; }
+        
+        /* Banner background images - Mobile first */
+        .banner-slide:nth-child(1) .banner-bg-image {
+          background-image: url(${p001});
+        }
+        .banner-slide:nth-child(2) .banner-bg-image {
+          background-image: url(${p002});
+        }
+        .banner-slide:nth-child(3) .banner-bg-image {
+          background-image: url(${p003});
+        }
+        
+        /* Desktop/Landscape images */
+        @media (min-width: 768px) {
+          .banner-slide:nth-child(1) .banner-bg-image {
+            background-image: url(${landscape001});
+          }
+          .banner-slide:nth-child(2) .banner-bg-image {
+            background-image: url(${landscape002});
+          }
+          .banner-slide:nth-child(3) .banner-bg-image {
+            background-image: url(${landscape003});
+          }
+        }
+        
         @media (max-width: 640px) {
           .service-btn .service-icon { width: 40px !important; height: 40px !important; }
           .service-btn span { font-size: 9px !important; }

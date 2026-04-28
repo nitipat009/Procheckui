@@ -58,7 +58,7 @@ const NAV: Item[] = [
 
 export function Shell() {
   return (
-    <div className="min-h-screen bg-[#F5F7FA] flex flex-col">
+    <div className="min-h-screen nbtc-page nbtc-theme-surface flex flex-col">
       <ShellInner>
         <Outlet />
       </ShellInner>

@@ -12,8 +12,8 @@ import {
   MobilePackage, InternetPackage, AnyPackage,
 } from "../data/mockPackages";
 
-const MOBILE_ACCENT   = "#0B5ED7";
-const INTERNET_ACCENT = "#0EA5E9";
+const MOBILE_ACCENT = "#F6F3E4";
+const INTERNET_ACCENT = "#F6F3E4";
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 function findPackage(id: number): AnyPackage | undefined {
@@ -117,7 +117,7 @@ function RelatedCard({ pkg, accent }: { pkg: AnyPackage; accent: string }) {
       </div>
       <div className="grid grid-cols-3 gap-2">
         {stats.map(({ Icon, val, label }) => (
-          <div key={label} className="flex flex-col items-center justify-center gap-1 bg-[#F5F7FA] rounded-xl p-2 text-center min-h-[68px]">
+          <div key={label} className="flex flex-col items-center justify-center gap-1 rounded-xl p-2 text-center min-h-[68px]" style={{ background: "rgba(246,243,228,0.06)" }}>
             <Icon className="w-3.5 h-3.5" strokeWidth={2} style={{ color: accent }} />
             <span className="text-[11px] font-semibold text-gray-900 leading-tight break-words w-full">{val}</span>
             <span className="text-[10px] text-gray-400">{label}</span>
@@ -289,7 +289,7 @@ export function PackageDetailPage() {
   // ── Not found / error ──
   if (!isLoading && !pkg) {
     return (
-      <div className="min-h-screen bg-[#F5F7FA] flex flex-col">
+      <div className="min-h-screen nbtc-page nbtc-theme-surface flex flex-col">
         <div className="flex-1 flex items-center justify-center px-4">
           <div className="text-center max-w-md">
             <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mx-auto mb-4">
@@ -311,7 +311,7 @@ export function PackageDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] text-gray-900">
+    <div className="min-h-screen nbtc-page nbtc-theme-surface">
       <div className="max-w-5xl mx-auto px-4 md:px-6 py-6 md:py-10">
 
         {/* Back */}
@@ -447,8 +447,7 @@ export function PackageDetailPage() {
             <div className="mt-10 flex justify-center">
               <button
                 onClick={() => navigate(`/compare?ids=${pkg.id}`)}
-                className="inline-flex items-center justify-center gap-2 px-10 py-3.5 rounded-xl text-white font-semibold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
-                style={{ background: accent }}
+                className="inline-flex items-center justify-center gap-2 px-10 py-3.5 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 nbtc-primary-btn"
               >
                 เปรียบเทียบแพ็กเกจ
                 <ArrowUpRight className="w-4 h-4" />

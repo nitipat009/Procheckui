@@ -153,7 +153,7 @@ export function Providers() {
   };
 
   return (
-    <section className="py-16 bg-white overflow-hidden">
+    <section className="py-16 overflow-hidden" style={{ background: "var(--clr-bg-primary)" }}>
       <style>{`
         @keyframes marquee-scroll {
           0% { transform: translateX(0); }
@@ -167,10 +167,10 @@ export function Providers() {
       `}</style>
 
       <div className="max-w-6xl mx-auto px-6 mb-10 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight" style={{ color: "var(--clr-light)" }}>
           ผู้ให้บริการ
         </h2>
-        <p className="text-gray-500 mt-2 text-sm">
+        <p className="mt-2 text-sm" style={{ color: "rgba(246,243,228,0.65)" }}>
           รวมผู้ให้บริการโทรศัพท์เคลื่อนที่ชั้นนำของประเทศไทย
         </p>
       </div>
@@ -180,12 +180,12 @@ export function Providers() {
         {/* Left fade */}
         <div
           className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, white, transparent)" }}
+          style={{ background: "linear-gradient(to right, #1E100F, transparent)" }}
         />
         {/* Right fade */}
         <div
           className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, white, transparent)" }}
+          style={{ background: "linear-gradient(to left, #1E100F, transparent)" }}
         />
 
         {/* Scrolling track */}

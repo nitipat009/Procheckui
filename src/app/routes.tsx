@@ -46,7 +46,8 @@ function ShellGuarded() {
 }
 
 export const router = createBrowserRouter([
-  { path: "/",              Component: wrap(MobilePage) },
+  { path: "/", element: <Navigate to="/home" replace /> },
+  { path: "/home",          Component: wrap(MobilePage) },
   { path: "/internet-ban",  Component: wrap(InternetBanPage) },
   { path: "/roaming",       Component: wrap(RoamingPage) },
   { path: "/search-result", Component: wrap(SearchResultPage) },

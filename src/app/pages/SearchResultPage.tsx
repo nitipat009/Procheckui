@@ -8,8 +8,8 @@ import { Pagination } from "../components/search/Pagination";
 import { mobilePackages, internetPackages, MobilePackage, InternetPackage, AnyPackage } from "../data/mockPackages";
 
 // ── Accent ───────────────────────────────────────────────────────────────────
-const MOBILE_ACCENT  = "#0B5ED7";
-const INTERNET_ACCENT = "#0EA5E9";
+const MOBILE_ACCENT = "#F6F3E4";
+const INTERNET_ACCENT = "#F6F3E4";
 
 // ── Sort options ─────────────────────────────────────────────────────────────
 type SortKey =
@@ -112,7 +112,7 @@ function MobileCard({ pkg, isFavorite, onToggle, accent, onOpen }: { pkg: Mobile
           { Icon: Zap, val: pkg.speed, label: "ความเร็ว" },
           { Icon: Phone, val: pkg.calls, label: "โทร" },
         ].map(({ Icon, val, label }) => (
-          <div key={label} className="flex flex-col items-center justify-center gap-1 bg-[#F5F7FA] rounded-xl p-2 text-center min-h-[68px]">
+          <div key={label} className="flex flex-col items-center justify-center gap-1 rounded-xl p-2 text-center min-h-[68px]" style={{ background: "rgba(246,243,228,0.06)" }}>
             <Icon className="w-3.5 h-3.5" strokeWidth={2} style={{ color: accent }} />
             <span className="text-xs font-semibold text-gray-900 leading-tight break-words w-full">{val}</span>
             <span className="text-[10px] text-gray-400">{label}</span>
@@ -126,8 +126,8 @@ function MobileCard({ pkg, isFavorite, onToggle, accent, onOpen }: { pkg: Mobile
         </span>
       </div>
       <button className="mt-auto w-full py-2.5 rounded-xl border text-sm font-medium flex items-center justify-center gap-1.5 group-hover:text-white transition-all"
-        style={{ borderColor: accent, color: accent }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = accent; (e.currentTarget as HTMLButtonElement).style.color = "white"; }}
+        style={{ borderColor: "rgba(246,243,228,0.25)", color: accent }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "var(--clr-accent)"; (e.currentTarget as HTMLButtonElement).style.color = "var(--clr-light)"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; (e.currentTarget as HTMLButtonElement).style.color = accent; }}>
         ดูรายละเอียด <ArrowUpRight className="w-3.5 h-3.5" />
       </button>
@@ -163,7 +163,7 @@ function InternetCard({ pkg, isFavorite, onToggle, accent, onOpen }: { pkg: Inte
           { Icon: Zap, val: pkg.upload, label: "อัปโหลด" },
           { Icon: ShieldCheck, val: pkg.contract, label: "สัญญา" },
         ].map(({ Icon, val, label }) => (
-          <div key={label} className="flex flex-col items-center justify-center gap-1 bg-[#F5F7FA] rounded-xl p-2 text-center min-h-[68px]">
+          <div key={label} className="flex flex-col items-center justify-center gap-1 rounded-xl p-2 text-center min-h-[68px]" style={{ background: "rgba(246,243,228,0.06)" }}>
             <Icon className="w-3.5 h-3.5" strokeWidth={2} style={{ color: accent }} />
             <span className="text-[10px] font-semibold text-gray-900 leading-tight break-words w-full">{val}</span>
             <span className="text-[10px] text-gray-400">{label}</span>
@@ -177,8 +177,8 @@ function InternetCard({ pkg, isFavorite, onToggle, accent, onOpen }: { pkg: Inte
         </span>
       </div>
       <button className="mt-auto w-full py-2.5 rounded-xl border text-sm font-medium flex items-center justify-center gap-1.5 transition-all"
-        style={{ borderColor: accent, color: accent }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = accent; (e.currentTarget as HTMLButtonElement).style.color = "white"; }}
+        style={{ borderColor: "rgba(246,243,228,0.25)", color: accent }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "var(--clr-accent)"; (e.currentTarget as HTMLButtonElement).style.color = "var(--clr-light)"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; (e.currentTarget as HTMLButtonElement).style.color = accent; }}>
         ดูรายละเอียด <ArrowUpRight className="w-3.5 h-3.5" />
       </button>
@@ -283,7 +283,7 @@ export function SearchResultPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] text-gray-900">
+    <div className="min-h-screen nbtc-page nbtc-theme-surface">
 
       {/* ── Page Header Bar ─────────────────────────────────────────── */}
       <div className="bg-white border-b border-gray-100">
@@ -385,14 +385,13 @@ export function SearchResultPage() {
                 <p className="text-sm text-gray-400 mt-1">ไม่สามารถโหลดข้อมูลได้ กรุณาลองใหม่อีกครั้ง</p>
               </div>
               <button onClick={handleRetry}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium text-white transition-colors"
-                style={{ background: accent }}>
+                className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium nbtc-primary-btn">
                 <RotateCcw className="w-4 h-4" /> ลองใหม่
               </button>
             </div>
           ) : paginated.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-24 gap-4 text-center">
-              <div className="w-16 h-16 rounded-full bg-[#F5F7FA] flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: "rgba(246,243,228,0.08)" }}>
                 <PackageSearch className="w-8 h-8 text-gray-400" />
               </div>
               <div>
