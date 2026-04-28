@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  procheckui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: procheckui
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    networks:
+      - procheckui-network
+
+networks:
+  procheckui-network:
+    driver: bridge
