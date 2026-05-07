@@ -241,7 +241,7 @@ export function PopularPackages() {
 
   return (
     <section className="py-3 px-4 md:py-4 md:px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto">
         {/* Header — centered */}
         <div className="text-left mb-6 md:mb-8">
           <h2 className="text-xl md:text-3xl font-bold text-gray-900 tracking-tight">

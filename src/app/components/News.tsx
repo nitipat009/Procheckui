@@ -120,7 +120,7 @@ export function News() {
       </div>
 
       {/* Full-bleed carousel */}
-      <div className="max-w-6xl mx-auto overflow-hidden">
+      <div className="mx-auto overflow-hidden">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex gap-4 pl-4 md:gap-5 md:pl-5">
             {news.map((n) => (

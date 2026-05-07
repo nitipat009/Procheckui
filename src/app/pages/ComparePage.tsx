@@ -323,9 +323,9 @@ export function ComparePage() {
     : "grid-cols-[180px_repeat(3,minmax(0,1fr))]";
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] text-gray-900">
+    <div className="min-h-screen bg-[#F5F7FA] text-gray-900 flex flex-col">
       {/* Hero */}
-      <div className="max-w-6xl mx-auto px-4 md:px-6 pt-8 md:pt-12 pb-4 text-center">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 pt-8 md:pt-12 pb-4 text-center w-full">
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
           เปรียบเทียบแพ็กเกจ
         </h1>
@@ -357,7 +357,7 @@ export function ComparePage() {
       </div>
 
       {/* Body */}
-      <div className="max-w-6xl mx-auto px-4 md:px-6 py-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 flex-1 w-full">
         {filledCount === 0 ? (
           <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-12 text-center">
             <div className="w-14 h-14 rounded-full bg-[#550000]/10 flex items-center justify-center mx-auto mb-4">
