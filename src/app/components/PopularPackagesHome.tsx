@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { Wifi, Zap, Heart, ArrowUpRight, Tv, ShieldCheck, Gamepad2, Phone } from "lucide-react";
+import { Wifi, Zap, Heart, ArrowRight, ArrowUpRight, Tv, ShieldCheck, Gamepad2, Phone } from "lucide-react";
 
 type CategoryKey = "ดูทีวี" | "ความปลอดภัย" | "เกม" | "โทรฟรี" | "ความเร็วสูง";
 
@@ -160,9 +160,9 @@ function PackageCard({
 }) {
   const navigate = useNavigate();
   return (
-    <div onClick={() => navigate(`/package-detail?id=${pkg.id}`)} className="relative bg-white rounded-2xl border border-gray-100 p-5 hover:border-[#550000]/30 hover:shadow-[0_8px_30px_-8px_rgba(14,165,233,0.15)] transition-all cursor-pointer group flex flex-col gap-3">
-      {/* Favorite toggle */}
-      <button
+    <div onClick={() => navigate(`/package-detail?id=${pkg.id}`)} className="relative bg-white rounded-2xl border border-gray-100 px-5 py-2 hover:border-[#550000]/30 hover:shadow-[0_8px_30px_-8px_rgba(85,0,0,0.15)] transition-all cursor-pointer group flex flex-col gap-3">
+      {/* Favorite toggle — hidden */}
+      {/* <button
         onClick={(e) => {
           e.stopPropagation();
           onToggleFavorite();
@@ -179,7 +179,7 @@ function PackageCard({
           fill={isFavorite ? "currentColor" : "none"}
           strokeWidth={isFavorite ? 0 : 2}
         />
-      </button>
+      </button> */}
 
       {/* Provider */}
       <div className="flex items-start gap-3 pr-10">
@@ -220,8 +220,8 @@ function PackageCard({
       </div>
 
       {/* CTA */}
-      <button className="mt-auto w-full py-2.5 rounded-xl border border-[#550000] text-[#550000] text-sm font-medium flex items-center justify-center gap-1.5 group-hover:bg-[#550000] group-hover:text-white transition-all">
-        ดูรายละเอียด <ArrowUpRight className="w-3.5 h-3.5" />
+      <button className="mt-auto flex items-center justify-center gap-1 text-sm text-[#550000] hover:text-[#3D0000] font-medium transition-colors">
+        ดูรายละเอียด <ArrowRight className="w-4 h-4" />
       </button>
     </div>
   );
@@ -240,15 +240,26 @@ export function PopularPackagesHome() {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-[#F5F7FA]">
-      <div className="max-w-6xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-6 md:mb-8">
+    <section className="py-3 px-4 md:py-4 md:px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Header — left aligned with "ดูทั้งหมด" link */}
+        <div className="text-left mb-6 md:mb-8">
           <h2 className="text-xl md:text-3xl font-bold text-gray-900 tracking-tight">
             แพ็กเกจอินเทอร์เน็ตบ้านยอดนิยม
           </h2>
-          <p className="text-gray-500 mt-2 text-sm">เปรียบเทียบและเลือกแพ็กเกจที่ใช่สำหรับคุณ</p>
+          <div className="flex items-end justify-between mt-2">
+            <p className="text-gray-500 text-sm">เปรียบเทียบและเลือกแพ็กเกจที่ใช่สำหรับคุณ</p>
+            <a
+              href="/search-result"
+              className="flex items-center gap-1 text-sm text-[#550000] hover:text-[#3D0000] font-medium transition-colors whitespace-nowrap"
+            >
+              ดูทั้งหมด
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
         </div>
 
+        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {packages.map((pkg) => (
             <PackageCard

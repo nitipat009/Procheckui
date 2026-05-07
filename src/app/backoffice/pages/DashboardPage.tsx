@@ -47,7 +47,7 @@ const sources = [
   { id: "s3", name: "Referral", value: 20 },
 ];
 
-const COLORS = ["#550000", "#550000", "#770000", "#990000"];
+const COLORS = ["#550000", "#770000", "#990000", "#BB0000"];
 
 function Card({ children, className = "" }: any) {
   return <div className={`bg-white rounded-xl border border-gray-200 p-5 ${className}`}>{children}</div>;
@@ -109,83 +109,73 @@ export function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
         <Card className="lg:col-span-2">
           <div className="text-sm font-medium text-gray-900 mb-3">Traffic Overview</div>
-          <div className="h-64">
-            <ResponsiveContainer>
-              <LineChart data={traffic}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
-                <XAxis dataKey="day" tick={{ fontSize: 12 }} />
-                <YAxis tick={{ fontSize: 12 }} />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="visits" stroke="#550000" strokeWidth={2} dot={false} name="Visits" />
-                <Line type="monotone" dataKey="unique" stroke="#550000" strokeWidth={2} dot={false} name="Unique" />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
+          <ResponsiveContainer width="100%" height={256}>
+            <LineChart data={traffic}>
+              <CartesianGrid key="grid" strokeDasharray="3 3" stroke="#eee" />
+              <XAxis key="xaxis" dataKey="day" tick={{ fontSize: 12 }} />
+              <YAxis key="yaxis" tick={{ fontSize: 12 }} />
+              <Tooltip key="tooltip" />
+              <Legend key="legend" />
+              <Line key="line-visits" type="monotone" dataKey="visits" stroke="#550000" strokeWidth={2} dot={false} name="Visits" />
+              <Line key="line-unique" type="monotone" dataKey="unique" stroke="#770000" strokeWidth={2} dot={false} name="Unique" />
+            </LineChart>
+          </ResponsiveContainer>
         </Card>
 
         <Card>
           <div className="text-sm font-medium text-gray-900 mb-3">Device</div>
-          <div className="h-64">
-            <ResponsiveContainer>
-              <PieChart>
-                <Pie data={devices} dataKey="value" nameKey="name" innerRadius={50} outerRadius={80} paddingAngle={2}>
-                  {devices.map((d, i) => (
-                    <Cell key={`device-${d.name}`} fill={COLORS[i % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Legend />
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
+          <ResponsiveContainer width="100%" height={256}>
+            <PieChart>
+              <Pie key="pie-device" data={devices} dataKey="value" nameKey="name" innerRadius={50} outerRadius={80} paddingAngle={2}>
+                {devices.map((d, i) => (
+                  <Cell key={`device-cell-${d.id}`} fill={COLORS[i % COLORS.length]} />
+                ))}
+              </Pie>
+              <Legend key="legend" />
+              <Tooltip key="tooltip" />
+            </PieChart>
+          </ResponsiveContainer>
         </Card>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <Card>
           <div className="text-sm font-medium text-gray-900 mb-3">คำค้นหายอดนิยม</div>
-          <div className="h-64">
-            <ResponsiveContainer>
-              <BarChart data={keywords} layout="vertical" margin={{ left: 20 }}>
-                <XAxis type="number" tick={{ fontSize: 11 }} />
-                <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={130} />
-                <Tooltip />
-                <Bar dataKey="count" fill="#550000" radius={[0, 4, 4, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+          <ResponsiveContainer width="100%" height={256}>
+            <BarChart data={keywords} layout="vertical" margin={{ left: 0 }}>
+              <XAxis key="xaxis" type="number" tick={{ fontSize: 11 }} />
+              <YAxis key="yaxis" type="category" dataKey="name" tick={{ fontSize: 11 }} width={130} />
+              <Tooltip key="tooltip" />
+              <Bar key="bar-count" dataKey="count" fill="#550000" radius={[0, 4, 4, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
         </Card>
 
         <Card>
           <div className="text-sm font-medium text-gray-900 mb-3">แพ็กเกจยอดนิยม</div>
-          <div className="h-64">
-            <ResponsiveContainer>
-              <BarChart data={popularPackages} layout="vertical" margin={{ left: 20 }}>
-                <XAxis type="number" tick={{ fontSize: 11 }} />
-                <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={140} />
-                <Tooltip />
-                <Bar dataKey="count" fill="#550000" radius={[0, 4, 4, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+          <ResponsiveContainer width="100%" height={256}>
+            <BarChart data={popularPackages} layout="vertical" margin={{ left: 0 }}>
+              <XAxis key="xaxis" type="number" tick={{ fontSize: 11 }} />
+              <YAxis key="yaxis" type="category" dataKey="name" tick={{ fontSize: 11 }} width={140} />
+              <Tooltip key="tooltip" />
+              <Bar key="bar-count" dataKey="count" fill="#550000" radius={[0, 4, 4, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
         </Card>
 
         <Card>
           <div className="text-sm font-medium text-gray-900 mb-3">Traffic by Source</div>
-          <div className="h-64">
-            <ResponsiveContainer>
-              <PieChart>
-                <Pie data={sources} dataKey="value" nameKey="name" outerRadius={85}>
-                  {sources.map((s, i) => (
-                    <Cell key={`source-${s.name}`} fill={COLORS[i % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Legend />
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
+          <ResponsiveContainer width="100%" height={256}>
+            <PieChart>
+              <Pie key="pie-source" data={sources} dataKey="value" nameKey="name" outerRadius={85}>
+                {sources.map((s, i) => (
+                  <Cell key={`source-cell-${s.id}`} fill={COLORS[i % COLORS.length]} />
+                ))}
+              </Pie>
+              <Legend key="legend" />
+              <Tooltip key="tooltip" />
+            </PieChart>
+          </ResponsiveContainer>
         </Card>
       </div>
     </div>

@@ -34,6 +34,7 @@ const NAV: Item[] = [
       { label: "Information", to: "/backoffice/cms/information" },
       { label: "Blogs", to: "/backoffice/cms/blogs" },
       { label: "FAQ", to: "/backoffice/cms/faq" },
+      { label: "Banner", to: "/backoffice/cms/banner" },
     ],
   },
   {

@@ -14,6 +14,7 @@ import { RequireAuth, RequireModule } from "./backoffice/auth";
 import { DashboardPage } from "./backoffice/pages/DashboardPage";
 import { UsersPage } from "./backoffice/pages/UsersPage";
 import { CmsInformationPage, CmsBlogsPage, CmsFaqPage } from "./backoffice/pages/CmsPages";
+import { CmsBannerPage } from "./backoffice/pages/CmsBannerPage";
 import { PackageListPage, VerificationPage } from "./backoffice/pages/PackagesPages";
 import { ReportActivityPage, ReportVerificationPage } from "./backoffice/pages/ReportsPages";
 import { ForbiddenPage } from "./backoffice/pages/ForbiddenPage";
@@ -67,6 +68,7 @@ export const router = createBrowserRouter([
       { path: "cms/information", Component: guard("cms", CmsInformationPage) },
       { path: "cms/blogs", Component: guard("cms", CmsBlogsPage) },
       { path: "cms/faq", Component: guard("cms", CmsFaqPage) },
+      { path: "cms/banner", Component: guard("cms", CmsBannerPage) },
       { path: "packages", Component: guard("packages", PackageListPage) },
       { path: "packages/verification", Component: guard("verification", VerificationPage) },
       { path: "reports", element: <Navigate to="/backoffice/reports/activity" replace /> },

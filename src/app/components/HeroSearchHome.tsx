@@ -154,25 +154,21 @@ export function HeroSearchHome() {
   };
 
   return (
-    <section className="relative overflow-hidden pt-8 pb-12 md:pt-10 md:pb-14"
-      style={{ background: "linear-gradient(135deg, #550000 0%, #770000 55%, #990000 100%)" }}
-    >
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-10 bg-white -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full opacity-10 bg-white translate-y-1/2 -translate-x-1/4 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 w-96 h-96 rounded-full opacity-5 bg-white -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-
-      <div className="relative max-w-5xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-5 md:mb-6">
-          <h1 className="text-xl md:text-3xl font-bold text-white tracking-tight drop-shadow-sm">
-            ค้นหาโปรโมชั่นอินเทอร์เน็ตบ้าน
-          </h1>
-          <p className="text-white/70 mt-2 text-xs md:text-sm">
-            เปรียบเทียบแพ็กเกจอินเทอร์เน็ตบ้านจากผู้ให้บริการชั้นนำในที่เดียว
-          </p>
-        </div>
+    <section className="relative overflow-hidden pt-2 pb-2 md:pt-5 md:pb-5">
+      <div className="relative mx-auto px-4 md:px-6">
 
         {/* Search Card */}
-        <div className="bg-white rounded-2xl shadow-[0_24px_60px_-12px_rgba(0,0,0,0.35)] border border-white/10 p-4 md:p-8">
+        <div className="bg-white rounded-2xl shadow-[0_4px_16px_-4px_rgba(0,0,0,0.20)] border border-gray-100 p-4 md:p-8">
+
+          {/* Title & Description — top left */}
+          <div className="mb-5 md:mb-6">
+            <div className="text-xl md:text-3xl font-bold text-[#1A1A1A] tracking-tight">
+              ค้นหาโปรโมชั่นอินเทอร์เน็ตบ้าน
+            </div>
+            <p className="text-gray-500 mt-1 text-xs md:text-sm">
+              เปรียบเทียบแพ็กเกจอินเทอร์เน็ตบ้านจากผู้ให้บริการชั้นนำในที่เดียว
+            </p>
+          </div>
 
           {/* Main filter row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 md:items-start">
@@ -180,7 +176,7 @@ export function HeroSearchHome() {
               <Dropdown label="ประเภทการเชื่อมต่อ" value={connType} onChange={setConnType} options={["ไฟเบอร์", "ADSL"]} />
               <Dropdown label="ผู้ให้บริการ" value={provider} onChange={setProvider} options={["AIS Fiber", "True Online", "3BB", "NT", "CAT"]} />
             </div>
-            <div className="md:border-l md:border-gray-100 md:pl-6">
+            <div className="md:pl-6">
               <PriceRangeSlider minVal={minPrice} maxVal={maxPrice} onMinChange={setMinPrice} onMaxChange={setMaxPrice} />
             </div>
           </div>
@@ -227,8 +223,7 @@ export function HeroSearchHome() {
           {/* Search button */}
           <button
             onClick={handleSearch}
-            className="mt-5 md:mt-6 w-full text-white py-3 rounded-xl font-medium flex items-center justify-center gap-2 transition-all shadow-[0_6px_20px_-8px_rgba(85,0,0,0.6)] hover:shadow-[0_8px_30px_-10px_rgba(85,0,0,0.8)]"
-            style={{ background: "linear-gradient(90deg, #550000 0%, #770000 100%)" }}
+            className="mt-5 md:mt-6 w-full bg-[#550000] hover:bg-[#3D0000] text-white py-3 rounded-xl font-medium flex items-center justify-center gap-2 transition-colors shadow-[0_6px_20px_-8px_rgba(85,0,0,0.6)]"
           >
             <Search className="w-4 h-4" />
             ค้นหา
