@@ -67,7 +67,7 @@ export function UsersPage() {
         actions={
           <button
             onClick={() => setEditing("new")}
-            className="bg-[#0B5ED7] hover:bg-[#094fb8] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5"
+            className="bg-[#550000] hover:bg-[#3D0000] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5"
           >
             <Plus className="w-4 h-4" /> สร้าง User
           </button>
@@ -81,7 +81,7 @@ export function UsersPage() {
             value={q}
             onChange={(e) => { setQ(e.target.value); setPage(1); }}
             placeholder="ค้นหาชื่อหรือ username"
-            className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0B5ED7]/30"
+            className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#550000]/30"
           />
         </div>
         <select value={role} onChange={(e) => setRole(e.target.value)} className="px-3 py-2 text-sm rounded-lg border border-gray-300">
@@ -164,7 +164,7 @@ export function UsersPage() {
 
 function RoleBadge({ role }: { role: string }) {
   const c = role === "Admin" ? "bg-violet-50 text-violet-700"
-    : role === "Editor" ? "bg-blue-50 text-[#0B5ED7]"
+    : role === "Editor" ? "bg-[#FEF0F2] text-[#550000]"
     : "bg-gray-100 text-gray-600";
   return <span className={`inline-block px-2 py-0.5 rounded-full text-xs ${c}`}>{role}</span>;
 }
@@ -229,21 +229,21 @@ function UserForm({ initial, onCancel, onSave }: { initial: Row | null; onCancel
           </select>
         </Field>
         <Field label="สถานะ">
-          <button type="button" onClick={() => setActive(!active)} className={`relative w-12 h-6 rounded-full transition-colors ${active ? "bg-[#0B5ED7]" : "bg-gray-300"}`}>
+          <button type="button" onClick={() => setActive(!active)} className={`relative w-12 h-6 rounded-full transition-colors ${active ? "bg-[#550000]" : "bg-gray-300"}`}>
             <span className={`absolute top-0.5 ${active ? "left-6" : "left-0.5"} w-5 h-5 bg-white rounded-full transition-all`} />
           </button>
           <span className="ml-3 text-sm text-gray-600">{active ? "Active" : "Inactive"}</span>
         </Field>
         <div className="flex justify-end gap-2 pt-2">
           <button type="button" onClick={onCancel} className="px-4 py-2 text-sm rounded-lg border border-gray-300">ยกเลิก</button>
-          <button type="submit" className="px-4 py-2 text-sm rounded-lg bg-[#0B5ED7] text-white hover:bg-[#094fb8]">บันทึก</button>
+          <button type="submit" className="px-4 py-2 text-sm rounded-lg bg-[#550000] text-white hover:bg-[#3D0000]">บันทึก</button>
         </div>
       </form>
     </Modal>
   );
 }
 
-const inputCls = "w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0B5ED7]/30";
+const inputCls = "w-full px-3 py-2 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#550000]/30";
 
 function Field({ label, children }: any) {
   return (

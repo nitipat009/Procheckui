@@ -111,7 +111,7 @@ export function PackageListPage() {
                   <td className="px-4 py-3"><VerifBadge s={r.status} /></td>
                   <td className="px-4 py-3 text-gray-600 text-xs">{r.lastChecked}</td>
                   <td className="px-4 py-3 text-right">
-                    <button onClick={() => setEditing(r)} className="text-[#0B5ED7] hover:bg-blue-50 w-8 h-8 rounded-lg inline-flex items-center justify-center">
+                    <button onClick={() => setEditing(r)} className="text-[#550000] hover:bg-[#FEF0F2] w-8 h-8 rounded-lg inline-flex items-center justify-center">
                       <Pencil className="w-4 h-4" />
                     </button>
                   </td>
@@ -155,7 +155,7 @@ function PkgForm({ pkg, onSave, onCancel, readOnly }: { pkg: Pkg; onSave: (p: Pk
       </div>
       <div className="flex justify-end gap-2 pt-2">
         <button type="button" onClick={onCancel} className="px-4 py-2 text-sm rounded-lg border border-gray-300">ปิด</button>
-        {!readOnly && <button type="submit" className="px-4 py-2 text-sm rounded-lg bg-[#0B5ED7] text-white">บันทึก</button>}
+        {!readOnly && <button type="submit" className="px-4 py-2 text-sm rounded-lg bg-[#550000] text-white">บันทึก</button>}
       </div>
     </form>
   );
@@ -219,7 +219,7 @@ export function VerificationPage() {
         title="Verification Management"
         description="ตรวจสอบแพ็กเกจบน Provider ผ่าน Web Scraping"
         actions={writable && (
-          <button onClick={runNow} disabled={running} className="bg-[#0B5ED7] hover:bg-[#094fb8] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5 disabled:opacity-60">
+          <button onClick={runNow} disabled={running} className="bg-[#550000] hover:bg-[#3D0000] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5 disabled:opacity-60">
             {running ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Play className="w-4 h-4" />}
             Run Verification ทันที
           </button>
@@ -266,13 +266,13 @@ export function VerificationPage() {
                 <tr key={r.id} className="border-t border-gray-100 hover:bg-gray-50">
                   <td className="px-4 py-3 text-gray-900">{r.name}</td>
                   <td className="px-4 py-3 text-gray-700">{r.provider}</td>
-                  <td className="px-4 py-3 text-blue-600 truncate max-w-[200px]">
+                  <td className="px-4 py-3 text-[#550000] truncate max-w-[200px]">
                     <a href={r.providerUrl} target="_blank" rel="noreferrer" className="hover:underline">{r.providerUrl}</a>
                   </td>
                   <td className="px-4 py-3"><VerifBadge s={r.status} /></td>
                   <td className="px-4 py-3 text-gray-600 text-xs">{r.lastChecked}</td>
                   <td className="px-4 py-3 text-right">
-                    <button onClick={() => setLogFor(r)} className="text-[#0B5ED7] hover:bg-blue-50 px-2 py-1 rounded inline-flex items-center gap-1 text-xs">
+                    <button onClick={() => setLogFor(r)} className="text-[#550000] hover:bg-[#FEF0F2] px-2 py-1 rounded inline-flex items-center gap-1 text-xs">
                       <FileText className="w-3.5 h-3.5" /> ดู Log
                     </button>
                   </td>

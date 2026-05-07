@@ -56,7 +56,7 @@ export function ReportActivityPage() {
         title="User Activity Report"
         description="พฤติกรรมผู้ใช้บน Public Site"
         actions={
-          <button onClick={() => setPreviewing(true)} className="bg-[#0B5ED7] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5">
+          <button onClick={() => setPreviewing(true)} className="bg-[#550000] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5">
             <FileDown className="w-4 h-4" /> Export PDF
           </button>
         }
@@ -161,7 +161,7 @@ export function ReportVerificationPage() {
         title="Package Verification Report"
         description="ผลการตรวจสอบแพ็กเกจสะสม"
         actions={
-          <button onClick={() => setPreviewing(true)} className="bg-[#0B5ED7] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5">
+          <button onClick={() => setPreviewing(true)} className="bg-[#550000] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5">
             <FileDown className="w-4 h-4" /> Export PDF
           </button>
         }
@@ -198,7 +198,7 @@ export function ReportVerificationPage() {
               <tr key={r.id} className="border-t border-gray-100 hover:bg-gray-50">
                 <td className="px-4 py-3 text-gray-900">{r.name}</td>
                 <td className="px-4 py-3 text-gray-700">{r.provider}</td>
-                <td className="px-4 py-3 text-blue-600 truncate max-w-[200px] font-mono text-xs">{r.url}</td>
+                <td className="px-4 py-3 text-[#550000] truncate max-w-[200px] font-mono text-xs">{r.url}</td>
                 <td className="px-4 py-3">
                   <span className={`text-xs px-2 py-0.5 rounded-full ${r.result === "Active" ? "bg-emerald-50 text-emerald-700" : r.result === "Error" ? "bg-red-50 text-red-700" : "bg-gray-100 text-gray-600"}`}>{r.result}</span>
                 </td>
@@ -254,7 +254,7 @@ function PdfPreview({
       <div className="bg-gray-100 p-4 rounded-lg max-h-[70vh] overflow-auto">
         <div className="bg-white shadow-md mx-auto max-w-3xl p-8 text-sm" style={{ aspectRatio: "210/297", minHeight: "auto" }}>
           {/* PDF Header */}
-          <div className="flex items-start justify-between border-b-2 border-[#0B5ED7] pb-3 mb-5">
+          <div className="flex items-start justify-between border-b-2 border-[#550000] pb-3 mb-5">
             <div>
               <img src={logoImg} alt="" className="h-8 mb-2 mix-blend-multiply" />
               <h2 className="text-lg font-medium text-gray-900">{title}</h2>
@@ -301,7 +301,7 @@ function PdfPreview({
 
       <div className="flex justify-end gap-2 pt-4">
         <button onClick={onClose} className="px-4 py-2 text-sm rounded-lg border border-gray-300">ยกเลิก</button>
-        <button onClick={download} className="px-4 py-2 text-sm rounded-lg bg-[#0B5ED7] text-white hover:bg-[#094fb8] flex items-center gap-1.5">
+        <button onClick={download} className="px-4 py-2 text-sm rounded-lg bg-[#550000] text-white hover:bg-[#3D0000] flex items-center gap-1.5">
           <Printer className="w-4 h-4" /> ดาวน์โหลด PDF
         </button>
       </div>

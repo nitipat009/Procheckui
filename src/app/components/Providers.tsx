@@ -69,10 +69,10 @@ const providers = [
   },
   {
     name: "Penguin",
-    color: "#0EA5E9",
+    color: "#550000",
     icon: (
       <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14">
-        <circle cx="30" cy="30" r="30" fill="#0EA5E9" />
+        <circle cx="30" cy="30" r="30" fill="#550000" />
         <ellipse cx="30" cy="27" rx="10" ry="12" fill="white" />
         <ellipse cx="30" cy="29" rx="6" ry="8" fill="#1E3A5F" />
         <ellipse cx="30" cy="37" rx="4" ry="3" fill="white" />
@@ -153,7 +153,7 @@ export function Providers() {
   };
 
   return (
-    <section className="py-16 overflow-hidden" style={{ background: "var(--clr-bg-primary)" }}>
+    <section className="py-4 md:py-8 bg-white overflow-hidden">
       <style>{`
         @keyframes marquee-scroll {
           0% { transform: translateX(0); }
@@ -166,11 +166,11 @@ export function Providers() {
         }
       `}</style>
 
-      <div className="max-w-6xl mx-auto px-6 mb-10 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight" style={{ color: "var(--clr-light)" }}>
+      <div className="mx-auto px-4 mb-10 text-left">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
           ผู้ให้บริการ
         </h2>
-        <p className="mt-2 text-sm" style={{ color: "rgba(246,243,228,0.65)" }}>
+        <p className="text-gray-500 mt-2 text-sm">
           รวมผู้ให้บริการโทรศัพท์เคลื่อนที่ชั้นนำของประเทศไทย
         </p>
       </div>
@@ -180,12 +180,12 @@ export function Providers() {
         {/* Left fade */}
         <div
           className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #1E100F, transparent)" }}
+          style={{ background: "linear-gradient(to right, white, transparent)" }}
         />
         {/* Right fade */}
         <div
           className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #1E100F, transparent)" }}
+          style={{ background: "linear-gradient(to left, white, transparent)" }}
         />
 
         {/* Scrolling track */}

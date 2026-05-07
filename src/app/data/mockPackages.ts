@@ -60,7 +60,7 @@ const PI = {
 // ── Category styles ──────────────────────────────────────────────────────────
 const C = {
   บันเทิง:  { color: "#7C3AED", bg: "#EDE9FB" },
-  กีฬา:    { color: "#0B5ED7", bg: "#EBF2FF" },
+  กีฬา:    { color: "#550000", bg: "#EBF2FF" },
   เกม:     { color: "#E30613", bg: "#FDEAEB" },
   ช้อปปิ้ง: { color: "#F59E0B", bg: "#FEF7E5" },
   อาหาร:   { color: "#10B981", bg: "#D1FAE5" },
@@ -68,7 +68,7 @@ const C = {
 
 const CI = {
   ดูทีวี:      { color: "#7C3AED", bg: "#EDE9FB" },
-  ความปลอดภัย: { color: "#0EA5E9", bg: "#E0F2FE" },
+  ความปลอดภัย: { color: "#550000", bg: "#E0F2FE" },
   เกม:         { color: "#E30613", bg: "#FDEAEB" },
   โทรฟรี:      { color: "#F59E0B", bg: "#FEF7E5" },
   ความเร็วสูง: { color: "#10B981", bg: "#D1FAE5" },

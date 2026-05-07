@@ -126,16 +126,16 @@ export function AiChat() {
           style={{ height: minimized ? "auto" : "min(520px, calc(100dvh - 8rem))" }}>
 
           {/* Header */}
-          <div className="px-4 py-3 flex items-center gap-3 flex-shrink-0" style={{ background: "var(--clr-accent)" }}>
+          <div className="bg-[#550000] px-4 py-3 flex items-center gap-3 flex-shrink-0">
             <div className="relative">
               <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
-              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-400 rounded-full border-2" style={{ borderColor: "var(--clr-accent)" }} />
+              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-400 rounded-full border-2 border-[#550000]" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-white text-sm font-semibold leading-tight">ProBot AI</p>
-                <p className="text-xs" style={{ color: "rgba(246,243,228,0.78)" }}>ผู้ช่วยเปรียบเทียบแพ็กเกจ</p>
+              <p className="text-[#FAE8EA] text-xs">ผู้ช่วยเปรียบเทียบแพ็กเกจ</p>
             </div>
             <div className="flex items-center gap-1">
               <button
@@ -163,15 +163,15 @@ export function AiChat() {
           {!minimized && (
             <>
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4"
-                style={{ scrollbarWidth: "none", background: "var(--clr-bg-primary)" }}>
+              <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 bg-[#F5F7FA]"
+                style={{ scrollbarWidth: "none" }}>
                 {messages.map((msg) => (
                   <div
                     key={msg.id}
                     className={`flex gap-2.5 ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}
                   >
                     {msg.role === "assistant" && (
-                      <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm" style={{ background: "var(--clr-accent)" }}>
+                      <div className="w-7 h-7 rounded-lg bg-[#550000] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                         <Sparkles className="w-3.5 h-3.5 text-white" />
                       </div>
                     )}
@@ -179,10 +179,9 @@ export function AiChat() {
                       <div
                         className={`px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${
                           msg.role === "user"
-                            ? "text-white rounded-tr-sm"
+                            ? "bg-[#550000] text-white rounded-tr-sm"
                             : "bg-white text-gray-800 rounded-tl-sm border border-gray-100 shadow-sm"
                         }`}
-                        style={msg.role === "user" ? { background: "var(--clr-accent)" } : undefined}
                       >
                         {formatMessage(msg.text)}
                       </div>
@@ -194,7 +193,7 @@ export function AiChat() {
                 {/* Typing indicator */}
                 {typing && (
                   <div className="flex gap-2.5 flex-row">
-                    <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm" style={{ background: "var(--clr-accent)" }}>
+                    <div className="w-7 h-7 rounded-lg bg-[#550000] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                       <Sparkles className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div className="bg-white border border-gray-100 shadow-sm px-4 py-3 rounded-2xl rounded-tl-sm flex items-center gap-1">
@@ -215,11 +214,10 @@ export function AiChat() {
                     <button
                       key={s}
                       onClick={() => sendMessage(s)}
-                       className="flex-none text-xs px-3 py-1.5 rounded-full border transition-colors whitespace-nowrap"
-                       style={{ borderColor: "rgba(246,243,228,0.25)", color: "var(--clr-light)", background: "rgba(246,243,228,0.03)" }}
-                     >
-                       {s}
-                     </button>
+                      className="flex-none text-xs px-3 py-1.5 rounded-full border border-[#550000] text-[#550000] hover:bg-[#550000] hover:text-white transition-colors whitespace-nowrap"
+                    >
+                      {s}
+                    </button>
                   ))}
                 </div>
               )}
@@ -232,20 +230,23 @@ export function AiChat() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKey}
                   placeholder="พิมพ์ข้อความ..."
-                   className="flex-1 text-sm px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none transition-all nbtc-input"
-                 />
-                 <button
-                   onClick={() => sendMessage(input)}
-                   disabled={!input.trim() || typing}
-                   className="w-10 h-10 rounded-xl nbtc-primary-btn disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-colors flex-shrink-0 shadow-sm"
-                 >
-                  <Send className="w-4 h-4" />
+                  className="flex-1 text-sm px-4 py-2.5 rounded-xl bg-[#F5F7FA] border border-gray-200 focus:outline-none focus:border-[#550000] focus:ring-2 focus:ring-[#550000]/10 transition-all"
+                />
+                <button
+                  onClick={() => sendMessage(input)}
+                  disabled={!input.trim() || typing}
+                  className="w-10 h-10 rounded-xl bg-[#550000] hover:bg-[#3D0000] disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-colors flex-shrink-0 shadow-sm"
+                >
+                  <Send className="w-4 h-4 text-white" />
                 </button>
               </div>
             </>
           )}
         </div>
       </div>
+
+      {/* FAB Button */}
+      
     </>
   );
 }

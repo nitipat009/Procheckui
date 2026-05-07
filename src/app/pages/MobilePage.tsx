@@ -9,8 +9,8 @@ import { AiChat } from "../components/AiChat";
 
 export function MobilePage() {
   return (
-    <div className="min-h-screen nbtc-page">
-      <HeroBanner />
+    <div className="min-h-screen bg-white text-gray-900">
+      <HeroBanner variant="mobile" />
       <HeroSearch />
       <PopularPackages />
       <Providers />

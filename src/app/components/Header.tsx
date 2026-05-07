@@ -4,9 +4,11 @@ import { NavLink } from "react-router";
 import logoImg from "../../imports/image.png";
 
 const links = [
-  { label: "โทรศัพท์เคลื่อนที่", to: "/home" },
+  { label: "หน้าแรก", to: "/" },
   { label: "อินเทอร์เน็ตบ้าน", to: "/internet-ban" },
   { label: "โรมมิ่ง", to: "/roaming" },
+  { label: "ข่าวสาร", to: "/article" },
+  { label: "เปรียบเทียบ", to: "/compare" },
 ];
 
 export function Header() {
@@ -15,39 +17,26 @@ export function Header() {
   return (
     <header
       className="w-full sticky top-0 z-40"
-      style={{
-        background: "var(--clr-bg-primary)",
-        borderBottom: "0.5px solid rgba(246,243,228,0.12)",
-        color: "var(--clr-light)",
-      }}
+      style={{ background: "#FFFFFF", borderBottom: "1px solid #E5E5E5" }}
     >
       <div className="relative max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
         <button
-          className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg transition-colors flex-shrink-0"
-          style={{ color: "var(--clr-light)" }}
+          className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors flex-shrink-0"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="เมนู"
         >
-          {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {menuOpen ? <X className="w-5 h-5" style={{ color: "#1A1A1A" }} /> : <Menu className="w-5 h-5" style={{ color: "#1A1A1A" }} />}
         </button>
 
-        <div className="md:hidden absolute left-1/2 -translate-x-1/2"
-          style={{
-            borderRadius: "var(--radius)",
-            background: "var(--clr-light)"
-          }}>
-          <NavLink to="/home">
-            <img src={logoImg} alt="Pro Check Logo" className="h-9 w-auto object-contain" />
+        <div className="md:hidden absolute left-1/2 -translate-x-1/2">
+          <NavLink to="/">
+            <img src={logoImg} alt="Pro Check Logo" className="h-9 w-auto object-contain mix-blend-multiply" />
           </NavLink>
         </div>
 
-        <div className="hidden md:flex items-center gap-2 flex-shrink-0"
-          style={{
-            borderRadius: "var(--radius)",
-            background: "var(--clr-light)"
-          }}>
-          <NavLink to="/home">
-            <img src={logoImg} alt="Pro Check Logo" className="h-10 w-auto object-contain" />
+        <div className="hidden md:flex items-center gap-2 flex-shrink-0">
+          <NavLink to="/">
+            <img src={logoImg} alt="Pro Check Logo" className="h-10 w-auto object-contain mix-blend-multiply" />
           </NavLink>
         </div>
 
@@ -56,21 +45,21 @@ export function Header() {
             <NavLink
               key={l.label}
               to={l.to}
-              end={l.to === "/home"}
-              className="text-sm transition-colors relative pb-1 whitespace-nowrap"
+              end={l.to === "/"}
+              className={({ isActive }) =>
+                `text-sm transition-colors relative pb-1 whitespace-nowrap ${
+                  isActive ? "font-medium" : ""
+                }`
+              }
               style={({ isActive }) => ({
-                color: isActive ? "var(--clr-light)" : "rgba(246,243,228,0.65)",
-                fontWeight: isActive ? 500 : 400,
+                color: isActive ? "#550000" : "rgba(26,26,26,0.7)",
               })}
             >
               {({ isActive }) => (
                 <>
                   {l.label}
                   {isActive && (
-                    <span
-                      className="absolute bottom-0 left-0 right-0 rounded-full"
-                       style={{ height: 2, background: "var(--clr-light)" }}
-                    />
+                    <span className="absolute bottom-0 left-0 right-0 rounded-full" style={{ height: 2, background: "#550000" }} />
                   )}
                 </>
               )}
@@ -79,15 +68,15 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
-          <div className="hidden md:block text-sm" style={{ color: "rgba(246,243,228,0.65)" }}>
-            <span style={{ color: "#F6F3E4", fontWeight: 500 }}>TH</span>
-            <span className="mx-1" style={{ color: "rgba(246,243,228,0.3)" }}>|</span>
-            <span className="cursor-pointer">EN</span>
+          <div className="hidden md:flex items-center gap-1 text-sm">
+            <span style={{ color: "#550000", fontWeight: 500 }}>TH</span>
+            <span style={{ color: "#E5E5E5" }}>|</span>
+            <span style={{ color: "#888888" }} className="cursor-pointer hover:text-[#550000] transition-colors">EN</span>
           </div>
           <NavLink
             to="/backoffice/login"
-            className="text-xs md:text-sm px-3 md:px-5 py-2 rounded-lg whitespace-nowrap nbtc-primary-btn"
-            style={{ fontWeight: 500 }}
+            className="text-xs md:text-sm px-4 md:px-5 py-2 transition-colors whitespace-nowrap nbtc-cta"
+            style={{ background: "#550000", color: "#FFFFFF", borderRadius: 9999, fontWeight: 500 }}
           >
             เข้าสู่ระบบ
           </NavLink>
@@ -96,50 +85,43 @@ export function Header() {
 
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          menuOpen ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
         }`}
+        style={{ background: "#FFFFFF", borderBottom: "1px solid #E5E5E5" }}
       >
-        <nav className="py-1" style={{ background: "var(--clr-bg-primary)" }}>
+        <nav className="py-1">
           {links.map((l) => (
             <NavLink
               key={l.label}
               to={l.to}
-               end={l.to === "/home"}
+              end={l.to === "/"}
               onClick={() => setMenuOpen(false)}
               className="flex items-center gap-3 px-5 py-3.5 text-sm transition-colors"
               style={({ isActive }) => ({
-                 color: isActive ? "var(--clr-light)" : "rgba(246,243,228,0.7)",
-                 fontWeight: isActive ? 500 : 400,
-                 background: isActive ? "rgba(246,243,228,0.06)" : "transparent",
-               })}
+                color: isActive ? "#550000" : "#1A1A1A",
+                fontWeight: isActive ? 500 : 400,
+                background: isActive ? "#FEF0F2" : "transparent",
+              })}
             >
               {({ isActive }) => (
                 <>
-                  <span
-                    className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                      style={{ background: isActive ? "var(--clr-light)" : "transparent" }}
-                  />
+                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: isActive ? "#550000" : "transparent" }} />
                   {l.label}
                 </>
               )}
             </NavLink>
           ))}
         </nav>
-
-        <div
-          className="px-5 py-3 flex items-center gap-3 text-sm"
-          style={{
-            borderTop: "0.5px solid rgba(246,243,228,0.12)",
-            background: "var(--clr-bg-primary)",
-            color: "rgba(246,243,228,0.65)",
-          }}
-        >
-          <span style={{ color: "#F6F3E4", fontWeight: 500 }} className="cursor-pointer">TH</span>
-          <span style={{ color: "rgba(246,243,228,0.3)" }}>|</span>
-          <span className="cursor-pointer">EN</span>
+        <div className="px-5 py-3 flex items-center gap-3 text-sm" style={{ borderTop: "1px solid #E5E5E5" }}>
+          <span style={{ color: "#550000", fontWeight: 500 }} className="cursor-pointer">TH</span>
+          <span style={{ color: "#E5E5E5" }}>|</span>
+          <span style={{ color: "#888888" }} className="cursor-pointer">EN</span>
         </div>
       </div>
 
+      <style>{`
+        .nbtc-cta:hover { background: #3D0000 !important; }
+      `}</style>
     </header>
   );
 }

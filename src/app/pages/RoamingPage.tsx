@@ -50,15 +50,15 @@ export function RoamingPage() {
     : { flex: 1, minHeight: 0 };  // flex-1 inside the fixed-height page
 
   return (
-    <div className="nbtc-page nbtc-theme-surface" style={pageStyle}>
+    <div style={pageStyle}>
       {/* ── iframe area ─────────────────────────────────────────────────── */}
       <div
-        className="relative overflow-x-hidden"
-        style={{ ...iframeContainerStyle, background: "var(--clr-bg-primary)" }}
+        className="relative overflow-x-hidden bg-[#F5F7FA]"
+        style={iframeContainerStyle}
       >
         {/* Loading skeleton */}
         {status === "loading" && (
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4" style={{ background: "var(--clr-bg-primary)" }}>
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#F5F7FA] gap-4">
             {/* Skeleton shimmer rows */}
             <div className="w-full max-w-4xl px-6 space-y-4 animate-pulse">
               <div className="h-8 bg-gray-200 rounded-xl w-1/3" />
@@ -75,7 +75,7 @@ export function RoamingPage() {
             </div>
             {/* Spinner + label */}
             <div className="flex items-center gap-2.5 text-sm text-gray-500">
-              <Loader2 className="w-5 h-5 animate-spin" style={{ color: "var(--clr-light)" }} />
+              <Loader2 className="w-5 h-5 text-[#550000] animate-spin" />
               กำลังโหลด Dashboard...
             </div>
           </div>
@@ -83,7 +83,7 @@ export function RoamingPage() {
 
         {/* Error state */}
         {status === "error" && (
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-5 px-4 text-center" style={{ background: "var(--clr-bg-primary)" }}>
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#F5F7FA] gap-5 px-4 text-center">
             <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center">
               <WifiOff className="w-7 h-7 text-red-400" />
             </div>
@@ -95,7 +95,7 @@ export function RoamingPage() {
             </div>
             <button
               onClick={reload}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium nbtc-primary-btn"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#550000] hover:bg-[#3D0000] text-white text-sm font-medium transition-colors"
             >
               <RefreshCw className="w-4 h-4" />
               โหลดใหม่อีกครั้ง

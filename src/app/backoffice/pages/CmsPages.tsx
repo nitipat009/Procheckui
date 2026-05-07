@@ -55,7 +55,7 @@ export function CmsInformationPage() {
                   <button
                     onClick={() => writable && setEditing(r)}
                     disabled={!writable}
-                    className="text-[#0B5ED7] hover:underline text-sm disabled:opacity-40"
+                    className="text-[#550000] hover:underline text-sm disabled:opacity-40"
                   >
                     {writable ? "แก้ไข" : "ดู"}
                   </button>
@@ -95,7 +95,7 @@ function InfoEditor({ item, onCancel, onSave }: { item: Info; onCancel: () => vo
           <div className="flex gap-2">
             <button onClick={onCancel} className="px-4 py-2 text-sm rounded-lg border border-gray-300">ยกเลิก</button>
             <button onClick={() => finish(false)} className="px-4 py-2 text-sm rounded-lg border border-gray-300">Save Draft</button>
-            <button onClick={() => finish(true)} className="px-4 py-2 text-sm rounded-lg bg-[#0B5ED7] text-white hover:bg-[#094fb8]">Publish</button>
+            <button onClick={() => finish(true)} className="px-4 py-2 text-sm rounded-lg bg-[#550000] text-white hover:bg-[#3D0000]">Publish</button>
           </div>
         </div>
       </div>
@@ -168,7 +168,7 @@ export function CmsBlogsPage() {
         title="Blogs"
         description="บทความและข่าวสาร"
         actions={writable && (
-          <button onClick={() => setEditing("new")} className="bg-[#0B5ED7] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5">
+          <button onClick={() => setEditing("new")} className="bg-[#550000] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5">
             <Plus className="w-4 h-4" /> สร้างบทความ
           </button>
         )}
@@ -213,7 +213,7 @@ export function CmsBlogsPage() {
                   <td className="px-4 py-3 text-gray-600">{r.publishAt}</td>
                   <td className="px-4 py-3 text-right">
                     <div className="flex justify-end gap-1">
-                      <button onClick={() => setEditing(r)} className="text-[#0B5ED7] hover:bg-blue-50 w-8 h-8 rounded-lg flex items-center justify-center"><Pencil className="w-4 h-4" /></button>
+                      <button onClick={() => setEditing(r)} className="text-[#550000] hover:bg-[#FEF0F2] w-8 h-8 rounded-lg flex items-center justify-center"><Pencil className="w-4 h-4" /></button>
                       {writable && <button onClick={() => setDelTarget(r)} className="text-red-600 hover:bg-red-50 w-8 h-8 rounded-lg flex items-center justify-center"><Trash2 className="w-4 h-4" /></button>}
                     </div>
                   </td>
@@ -300,7 +300,7 @@ function BlogEditor({ initial, onCancel, onSave, readOnly }: { initial: Blog | n
           <label className="block text-sm text-gray-700 mb-1.5">แท็ก</label>
           <div className="flex flex-wrap gap-1.5 p-2 border border-gray-300 rounded-lg">
             {tags.map((t) => (
-              <span key={t} className="bg-blue-50 text-[#0B5ED7] text-xs px-2 py-0.5 rounded-full flex items-center gap-1">
+              <span key={t} className="bg-[#FEF0F2] text-[#550000] text-xs px-2 py-0.5 rounded-full flex items-center gap-1">
                 {t}
                 {!readOnly && <button type="button" onClick={() => setTags(tags.filter(x => x !== t))} className="hover:text-red-600">×</button>}
               </span>
@@ -340,7 +340,7 @@ function BlogEditor({ initial, onCancel, onSave, readOnly }: { initial: Blog | n
           </select>
           <div className="flex gap-2">
             <button type="button" onClick={onCancel} className="px-4 py-2 text-sm rounded-lg border border-gray-300">ปิด</button>
-            {!readOnly && <button type="submit" className="px-4 py-2 text-sm rounded-lg bg-[#0B5ED7] text-white hover:bg-[#094fb8]">บันทึก</button>}
+            {!readOnly && <button type="submit" className="px-4 py-2 text-sm rounded-lg bg-[#550000] text-white hover:bg-[#3D0000]">บันทึก</button>}
           </div>
         </div>
       </form>
@@ -376,7 +376,7 @@ export function CmsFaqPage() {
         title="FAQ"
         description="คำถามที่พบบ่อย"
         actions={writable && (
-          <button onClick={() => setEditing("new")} className="bg-[#0B5ED7] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5">
+          <button onClick={() => setEditing("new")} className="bg-[#550000] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1.5">
             <Plus className="w-4 h-4" /> เพิ่ม FAQ
           </button>
         )}
@@ -405,7 +405,7 @@ export function CmsFaqPage() {
                   </span>
                 </td>
                 <td className="px-4 py-3 text-right">
-                  <button onClick={() => setEditing(r)} className="text-[#0B5ED7] hover:underline">{writable ? "แก้ไข" : "ดู"}</button>
+                  <button onClick={() => setEditing(r)} className="text-[#550000] hover:underline">{writable ? "แก้ไข" : "ดู"}</button>
                   {writable && (
                     <button onClick={() => { setRows((p) => p.filter((x) => x.id !== r.id)); toast.success("ลบสำเร็จ"); }} className="ml-3 text-red-600 hover:underline">ลบ</button>
                   )}
@@ -464,7 +464,7 @@ function FaqEditor({ initial, onCancel, onSave, readOnly, maxOrder }: any) {
           </label>
           <div className="flex gap-2">
             <button type="button" onClick={onCancel} className="px-4 py-2 text-sm rounded-lg border border-gray-300">ปิด</button>
-            {!readOnly && <button type="submit" className="px-4 py-2 text-sm rounded-lg bg-[#0B5ED7] text-white">บันทึก</button>}
+            {!readOnly && <button type="submit" className="px-4 py-2 text-sm rounded-lg bg-[#550000] text-white">บันทึก</button>}
           </div>
         </div>
       </form>

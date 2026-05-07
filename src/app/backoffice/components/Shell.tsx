@@ -58,7 +58,7 @@ const NAV: Item[] = [
 
 export function Shell() {
   return (
-    <div className="min-h-screen nbtc-page nbtc-theme-surface flex flex-col">
+    <div className="min-h-screen bg-[#F5F7FA] flex flex-col">
       <ShellInner>
         <Outlet />
       </ShellInner>
@@ -99,7 +99,7 @@ function ShellInner({ children }: { children: ReactNode }) {
             logout();
             nav("/backoffice/login");
           }}
-          className="flex items-center gap-1.5 text-sm text-gray-700 hover:text-[#0B5ED7] px-3 py-2 rounded-lg hover:bg-gray-50"
+          className="flex items-center gap-1.5 text-sm text-gray-700 hover:text-[#550000] px-3 py-2 rounded-lg hover:bg-gray-50"
         >
           <LogOut className="w-4 h-4" />
           <span className="hidden sm:inline">ออกจากระบบ</span>
@@ -151,7 +151,7 @@ function NavGroup({
         className={({ isActive }) =>
           `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
             isActive
-              ? "bg-[#0B5ED7] text-white"
+              ? "bg-[#550000] text-white"
               : "text-gray-700 hover:bg-gray-100"
           }`
         }
@@ -167,7 +167,7 @@ function NavGroup({
       <button
         onClick={() => setExpanded(!expanded)}
         className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
-          childActive ? "text-[#0B5ED7] bg-blue-50" : "text-gray-700 hover:bg-gray-100"
+          childActive ? "text-[#550000] bg-[#FEF0F2]" : "text-gray-700 hover:bg-gray-100"
         }`}
       >
         <Icon className="w-4 h-4" />
@@ -184,7 +184,7 @@ function NavGroup({
               onClick={onNavigate}
               className={({ isActive }) =>
                 `block px-3 py-2 rounded-lg text-sm transition-colors ${
-                  isActive ? "bg-[#0B5ED7] text-white" : "text-gray-600 hover:bg-gray-100"
+                  isActive ? "bg-[#550000] text-white" : "text-gray-600 hover:bg-gray-100"
                 }`
               }
             >

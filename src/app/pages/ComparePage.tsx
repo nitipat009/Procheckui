@@ -11,6 +11,7 @@ import {
 } from "../data/mockPackages";
 import { useIsMobile } from "../components/ui/use-mobile";
 
+const ACCENT = "#550000";
 const MAX_SLOTS = 3;
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -188,8 +189,7 @@ function AddPackageModal({
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="ค้นหาชื่อแพ็กเกจหรือผู้ให้บริการ"
-              className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none"
-              style={{ background: "rgba(246,243,228,0.06)", color: "var(--clr-light)", borderColor: "rgba(246,243,228,0.2)" }}
+              className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#550000]"
             />
           </div>
           <div className="flex items-center gap-2 text-xs">
@@ -201,11 +201,12 @@ function AddPackageModal({
               <button
                 key={v}
                 onClick={() => setFilter(v)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border transition-colors"
-                  style={filter === v
-                    ? { background: "var(--clr-accent)", borderColor: "rgba(246,243,228,0.25)", color: "var(--clr-light)" }
-                    : { background: "rgba(246,243,228,0.04)", borderColor: "rgba(246,243,228,0.2)", color: "rgba(246,243,228,0.72)" }}
-                >
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border transition-colors ${
+                  filter === v
+                    ? "bg-[#550000] border-[#550000] text-white"
+                    : "bg-white border-gray-200 text-gray-600 hover:border-gray-300"
+                }`}
+              >
                 {Icon && <Icon className="w-3.5 h-3.5" />}
                 {label}
               </button>
@@ -244,7 +245,7 @@ function AddPackageModal({
                             : `${(pkg as InternetPackage).download} • ${(pkg as InternetPackage).contract}`}
                         </p>
                       </div>
-                      <span className="text-sm font-bold flex-shrink-0" style={{ color: "var(--clr-light)" }}>
+                      <span className="text-sm font-bold text-[#550000] flex-shrink-0">
                         {pkg.price.toLocaleString()}
                       </span>
                       {disabled && <span className="text-[10px] text-gray-400 ml-2">เพิ่มแล้ว</span>}
@@ -322,7 +323,7 @@ export function ComparePage() {
     : "grid-cols-[180px_repeat(3,minmax(0,1fr))]";
 
   return (
-    <div className="min-h-screen nbtc-page nbtc-theme-surface">
+    <div className="min-h-screen bg-[#F5F7FA] text-gray-900">
       {/* Hero */}
       <div className="max-w-6xl mx-auto px-4 md:px-6 pt-8 md:pt-12 pb-4 text-center">
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
@@ -336,7 +337,7 @@ export function ComparePage() {
       </div>
 
       {/* Sticky Selector Header */}
-      <div className="sticky top-16 z-30 backdrop-blur-md border-b border-gray-100" style={{ background: "rgba(30,16,15,0.92)" }}>
+      <div className="sticky top-16 z-30 bg-[#F5F7FA]/90 backdrop-blur-md border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-4">
           <div className={`grid ${selectorGridClass} gap-2 md:gap-3`}>
             <div className="hidden md:flex items-center text-xs uppercase tracking-wide text-gray-400">
@@ -359,17 +360,18 @@ export function ComparePage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-6">
         {filledCount === 0 ? (
           <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-12 text-center">
-            <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: "rgba(246,243,228,0.12)" }}>
-              <Plus className="w-6 h-6" style={{ color: "var(--clr-light)" }} />
+            <div className="w-14 h-14 rounded-full bg-[#550000]/10 flex items-center justify-center mx-auto mb-4">
+              <Plus className="w-6 h-6 text-[#550000]" />
             </div>
             <p className="font-semibold text-gray-800">ยังไม่มีแพ็กเกจให้เปรียบเทียบ</p>
             <p className="text-sm text-gray-500 mt-1">เริ่มต้นโดยเพิ่มแพ็กเกจในช่องด้านบน</p>
-              <button
-                onClick={() => setModalOpenIndex(0)}
-                className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium nbtc-primary-btn"
-              >
-                <Plus className="w-4 h-4" /> เพิ่มแพ็กเกจแรก
-              </button>
+            <button
+              onClick={() => setModalOpenIndex(0)}
+              className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white font-medium"
+              style={{ background: ACCENT }}
+            >
+              <Plus className="w-4 h-4" /> เพิ่มแพ็กเกจแรก
+            </button>
           </div>
         ) : (
           <>
@@ -380,8 +382,7 @@ export function ComparePage() {
                   type="checkbox"
                   checked={showDiffOnly}
                   onChange={(e) => setShowDiffOnly(e.target.checked)}
-                  className="w-4 h-4 rounded"
-                  style={{ accentColor: "var(--clr-light)" }}
+                  className="w-4 h-4 accent-[#550000] rounded"
                 />
                 แสดงเฉพาะหัวข้อที่ต่างกัน
               </label>
@@ -406,8 +407,7 @@ export function ComparePage() {
                   <button
                     key={idx}
                     onClick={() => navigate(`/package-detail?id=${pkg.id}`)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 transition-colors"
-                    style={{ borderColor: "rgba(246,243,228,0.2)" }}
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 hover:border-[#550000] hover:text-[#550000] transition-colors"
                   >
                     ดูรายละเอียด: <span className="font-medium truncate max-w-[140px]">{pkg.name}</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -448,11 +448,10 @@ function SlotCard({
 }) {
   if (!pkg) {
     return (
-        <button
-          onClick={onAdd}
-          className="h-[100px] md:h-[120px] rounded-2xl border-2 border-dashed border-gray-300 bg-white/50 transition-colors flex flex-col items-center justify-center gap-1.5 text-gray-400"
-          style={{ borderColor: "rgba(246,243,228,0.25)" }}
-        >
+      <button
+        onClick={onAdd}
+        className="h-[100px] md:h-[120px] rounded-2xl border-2 border-dashed border-gray-300 bg-white/50 hover:border-[#550000] hover:bg-white transition-colors flex flex-col items-center justify-center gap-1.5 text-gray-400 hover:text-[#550000]"
+      >
         <Plus className="w-5 h-5" />
         <span className="text-xs font-medium">เพิ่มแพ็กเกจ</span>
       </button>
@@ -478,7 +477,7 @@ function SlotCard({
         {pkg.name}
       </p>
       <div className="mt-auto flex items-baseline gap-1">
-        <span className="text-base md:text-xl font-bold" style={{ color: "var(--clr-light)" }}>
+        <span className="text-base md:text-xl font-bold text-[#550000]">
           {pkg.price.toLocaleString()}
         </span>
         <span className="text-[10px] text-gray-400">บาท/เดือน</span>
@@ -537,8 +536,8 @@ function ComparisonTable({
               <div key={group.title}>
                 {/* Group header */}
                 <div
-                  className="px-4 md:px-5 py-2.5 border-y border-gray-100"
-                  style={{ ...gridStyle, background: "rgba(246,243,228,0.06)" }}
+                  style={gridStyle}
+                  className="bg-[#F5F7FA] px-4 md:px-5 py-2.5 border-y border-gray-100"
                 >
                   <div
                     style={{ gridColumn: `1 / span ${numCols + 1}` }}
@@ -577,8 +576,9 @@ function ComparisonTable({
                         return (
                           <div
                             key={i}
-                            className={`text-xs md:text-sm flex items-center gap-1.5 px-2 ${isBest ? "font-bold" : "text-gray-900"}`}
-                            style={isBest ? { color: "var(--clr-light)" } : undefined}
+                            className={`text-xs md:text-sm flex items-center gap-1.5 px-2 ${
+                              isBest ? "font-bold text-[#550000]" : "text-gray-900"
+                            }`}
                           >
                             {isBest && <Trophy className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />}
                             <span className="truncate">{filled ? cell.display : "–"}</span>

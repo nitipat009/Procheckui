@@ -1,7 +1,7 @@
 
-  # Frontend Client
+  # Frontend Client (NBTC)
 
-  This is a code bundle for Frontend Client. The original project is available at https://www.figma.com/design/CeK7nVg0dilg8mZaeZsiRV/Frontend-Client.
+  This is a code bundle for Frontend Client (NBTC). The original project is available at https://www.figma.com/design/sATfRlaxF4w1D0HQ1PgWyw/Frontend-Client--NBTC-.
 
   ## Running the code
 
