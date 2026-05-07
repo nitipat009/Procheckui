@@ -375,8 +375,18 @@ function SlideArt({ kind }: { kind: Slide["art"] }) {
         </g>
 
         {/* Small circles */}
-        <circle cx="90" cy="40" r="3" fill="rgba(255,255,255,0.6)" />
-        <circle cx="170" cy="220" r="3" fill="rgba(255,255,255,0.6)" />
+        <circle
+          cx="90"
+          cy="40"
+          r="3"
+          fill="rgba(255,255,255,0.6)"
+        />
+        <circle
+          cx="170"
+          cy="220"
+          r="3"
+          fill="rgba(255,255,255,0.6)"
+        />
       </svg>
     );
   }
@@ -391,15 +401,78 @@ function SlideArt({ kind }: { kind: Slide["art"] }) {
       >
         {/* Cityscape silhouette (background) */}
         <g opacity="0.15">
-          <rect x="30" y="240" width="28" height="70" fill="rgba(255,255,255,0.8)" rx="2" />
-          <rect x="63" y="215" width="32" height="95" fill="rgba(255,255,255,0.8)" rx="2" />
-          <rect x="100" y="230" width="26" height="80" fill="rgba(255,255,255,0.8)" rx="2" />
-          <rect x="131" y="205" width="35" height="105" fill="rgba(255,255,255,0.8)" rx="2" />
-          <rect x="171" y="220" width="30" height="90" fill="rgba(255,255,255,0.8)" rx="2" />
-          <rect x="285" y="225" width="29" height="85" fill="rgba(255,255,255,0.8)" rx="2" />
-          <rect x="319" y="210" width="38" height="100" fill="rgba(255,255,255,0.8)" rx="2" />
-          <rect x="362" y="235" width="27" height="75" fill="rgba(255,255,255,0.8)" rx="2" />
-          <rect x="394" y="220" width="32" height="90" fill="rgba(255,255,255,0.8)" rx="2" />
+          <rect
+            x="30"
+            y="240"
+            width="28"
+            height="70"
+            fill="rgba(255,255,255,0.8)"
+            rx="2"
+          />
+          <rect
+            x="63"
+            y="215"
+            width="32"
+            height="95"
+            fill="rgba(255,255,255,0.8)"
+            rx="2"
+          />
+          <rect
+            x="100"
+            y="230"
+            width="26"
+            height="80"
+            fill="rgba(255,255,255,0.8)"
+            rx="2"
+          />
+          <rect
+            x="131"
+            y="205"
+            width="35"
+            height="105"
+            fill="rgba(255,255,255,0.8)"
+            rx="2"
+          />
+          <rect
+            x="171"
+            y="220"
+            width="30"
+            height="90"
+            fill="rgba(255,255,255,0.8)"
+            rx="2"
+          />
+          <rect
+            x="285"
+            y="225"
+            width="29"
+            height="85"
+            fill="rgba(255,255,255,0.8)"
+            rx="2"
+          />
+          <rect
+            x="319"
+            y="210"
+            width="38"
+            height="100"
+            fill="rgba(255,255,255,0.8)"
+            rx="2"
+          />
+          <rect
+            x="362"
+            y="235"
+            width="27"
+            height="75"
+            fill="rgba(255,255,255,0.8)"
+            rx="2"
+          />
+          <rect
+            x="394"
+            y="220"
+            width="32"
+            height="90"
+            fill="rgba(255,255,255,0.8)"
+            rx="2"
+          />
         </g>
 
         {/* WiFi Icon (left side, orange) */}
@@ -471,13 +544,24 @@ function SlideArt({ kind }: { kind: Slide["art"] }) {
         <g transform="translate(200, 50)">
           {/* Phone body with 3D effect */}
           <defs>
-            <linearGradient id="phone3dGrad" x1="0" y1="0" x2="1" y2="1">
+            <linearGradient
+              id="phone3dGrad"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="1"
+            >
               <stop offset="0%" stopColor="#FFFFFF" />
               <stop offset="50%" stopColor="#F8F9FA" />
               <stop offset="100%" stopColor="#E9ECEF" />
             </linearGradient>
             <filter id="phoneShadow">
-              <feDropShadow dx="2" dy="4" stdDeviation="4" floodOpacity="0.2"/>
+              <feDropShadow
+                dx="2"
+                dy="4"
+                stdDeviation="4"
+                floodOpacity="0.2"
+              />
             </filter>
           </defs>
 
@@ -515,7 +599,13 @@ function SlideArt({ kind }: { kind: Slide["art"] }) {
           />
 
           {/* Screen content - NBTC badge */}
-          <circle cx="45" cy="55" r="20" fill="white" opacity="0.95" />
+          <circle
+            cx="45"
+            cy="55"
+            r="20"
+            fill="white"
+            opacity="0.95"
+          />
           <text
             x="45"
             y="52"
@@ -561,10 +651,38 @@ function SlideArt({ kind }: { kind: Slide["art"] }) {
           </text>
 
           {/* Decorative screen elements */}
-          <rect x="15" y="115" width="60" height="3" rx="1.5" fill="rgba(255,255,255,0.25)" />
-          <rect x="18" y="123" width="54" height="8" rx="4" fill="rgba(255,255,255,0.2)" />
-          <rect x="18" y="135" width="54" height="8" rx="4" fill="rgba(255,255,255,0.15)" />
-          <rect x="18" y="147" width="54" height="8" rx="4" fill="rgba(255,255,255,0.12)" />
+          <rect
+            x="15"
+            y="115"
+            width="60"
+            height="3"
+            rx="1.5"
+            fill="rgba(255,255,255,0.25)"
+          />
+          <rect
+            x="18"
+            y="123"
+            width="54"
+            height="8"
+            rx="4"
+            fill="rgba(255,255,255,0.2)"
+          />
+          <rect
+            x="18"
+            y="135"
+            width="54"
+            height="8"
+            rx="4"
+            fill="rgba(255,255,255,0.15)"
+          />
+          <rect
+            x="18"
+            y="147"
+            width="54"
+            height="8"
+            rx="4"
+            fill="rgba(255,255,255,0.12)"
+          />
         </g>
 
         {/* WiFi Icon (right side, orange) */}
@@ -597,9 +715,21 @@ function SlideArt({ kind }: { kind: Slide["art"] }) {
 
         {/* Gradient definition for podium */}
         <defs>
-          <linearGradient id="podiumGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.6)" />
-            <stop offset="100%" stopColor="rgba(255,255,255,0.2)" />
+          <linearGradient
+            id="podiumGrad"
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="1"
+          >
+            <stop
+              offset="0%"
+              stopColor="rgba(255,255,255,0.6)"
+            />
+            <stop
+              offset="100%"
+              stopColor="rgba(255,255,255,0.2)"
+            />
           </linearGradient>
         </defs>
       </svg>
@@ -748,7 +878,7 @@ export function HeroBanner({
       <div
         className="relative overflow-hidden"
         style={{
-          height: "clamp(320px, 45vh, 480px)",
+          height: "clamp(320px, 60vh, 480px)",
           background:
             "linear-gradient(135deg, #FFB8C8 0%, #E88BA0 30%, #B85770 60%, #8B3A50 85%, #550000 100%)",
         }}
@@ -774,15 +904,18 @@ export function HeroBanner({
                     backgroundImage: `url(${heroImage})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center 45%",
-                    backgroundRepeat: "no-repeat"
-                  })
+                    backgroundRepeat: "no-repeat",
+                  }),
                 }}
               >
                 <div
                   className="w-full h-full max-w-7xl mx-auto flex items-center justify-between relative z-10"
                   style={{
                     padding: "0 clamp(24px, 6vw, 80px)",
-                    gap: s.art === "heroimage" ? "clamp(16px, 3vw, 32px)" : "32px"
+                    gap:
+                      s.art === "heroimage"
+                        ? "clamp(16px, 3vw, 32px)"
+                        : "32px",
                   }}
                 >
                   {s.art !== "heroimage" && (
@@ -831,7 +964,8 @@ export function HeroBanner({
                           borderRadius: 9999,
                           fontSize: 13,
                           fontWeight: 500,
-                          border: "1px solid rgba(255,255,255,0.2)",
+                          border:
+                            "1px solid rgba(255,255,255,0.2)",
                         }}
                       >
                         <Search className="w-4 h-4" />
@@ -843,7 +977,7 @@ export function HeroBanner({
                     <div
                       className="hidden md:flex flex-shrink-0 items-center justify-center"
                       style={{
-                        width: s.art === "phone3d" ? 420 : 200
+                        width: s.art === "phone3d" ? 420 : 200,
                       }}
                     >
                       <SlideArt kind={s.art} />
@@ -896,7 +1030,10 @@ export function HeroBanner({
         </div>
 
         {/* Dot indicators */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{ background: "rgba(0,0,0,0.25)" }}>
+        <div
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1.5 mb-1 rounded-full"
+          style={{ background: "rgba(0,0,0,0.25)" }}
+        >
           {slides.map((s, i) => (
             <button
               key={s.id}
@@ -923,7 +1060,7 @@ export function HeroBanner({
 
       {/* Service Navigator */}
       <div
-        className="w-full overflow-x-auto md:overflow-visible no-scrollbar mt-4 z-9999"
+        className="w-full overflow-x-auto md:overflow-visible no-scrollbar -mt-4 z-9999"
         style={{
           padding: "0 clamp(24px, 16px, 80px)",
         }}
@@ -945,7 +1082,10 @@ export function HeroBanner({
                 className="group flex items-center gap-2.5 cursor-pointer py-3 px-3 md:px-5 rounded-lg hover:bg-[#FEF0F2] transition-colors duration-150"
                 style={{ minWidth: 160 }}
               >
-                <div className="flex-shrink-0 flex items-center justify-center text-[#550000] group-hover:text-[#3D0000] transition-colors duration-150" style={{ width: 28, height: 28 }}>
+                <div
+                  className="flex-shrink-0 flex items-center justify-center text-[#550000] group-hover:text-[#3D0000] transition-colors duration-150"
+                  style={{ width: 28, height: 28 }}
+                >
                   <ServiceIcon id={s.id} />
                 </div>
                 <div className="leading-tight">
