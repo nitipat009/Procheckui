@@ -1,0 +1,17 @@
+name: Deploy on Main Update
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build and start containers
+        run: sudo docker compose up --build -d
